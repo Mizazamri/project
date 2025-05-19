@@ -1,0 +1,115 @@
+body, html
+{
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+.bg-img1
+{
+    background-image: url("Image/BCLog.png");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.bg-img2
+{
+    background-image: url("Image/BCSign.png");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+#imgformat
+{
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px auto;
+}
+.container
+{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    max-width: 500px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.container h1
+{
+    font-size: 36px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.psw
+{
+    font-size: 14px;
+}
+input[type="text1"], input[type=password]
+{
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 20px;
+    border: none;
+    background: #f1f1f1;
+    font-size: 16px;
+}
+.btn:hover
+{
+    opacity: 1;
+}
+.btn-row
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+}
+.btn-cancel, .btn-signup
+{
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+}
+
+.btn-s, .btn-r
+{
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+}
+
+.new-account
+{
+    text-align: center;
+}
+.psw-center
+{
+    text-align: center;
+}
+.already-account
+{
+    text-align: center;
+}
+

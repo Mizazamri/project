@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - BloodLink (Blood Donation)</title>
+    <link rel="stylesheet" href="home.css" type="text/css">
+</head>
+<body>
+    <header>
+        <div id="branding">
+            <img src="logo.jpg" alt="BloodLink Logo" id="logo">
+            <h1>BloodLink</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html" class="nav-btn">Home</a></li>
+                <li><a href="event.html" class="nav-btn">Event</a></li>
+                <li><a href="faq.html" class="nav-btn">FAQ</a></li> 
+                <li><a href="us.html" class="nav-btn">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="intro">
+        <h2>Intro</h2>
+        <p class="subtitle">subtitle</p>
+        <div class="cta-buttons">
+            <button>🩸 donate now!</button>
+            <button>💬 let's get to know more about blood donation! 💉</button>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <img src="b1.jpg" alt="b1">
+        <img src="b2.jpg" alt="b2">
+        <img src="b3.jpg" alt="b3">
+        <img src="b4.jpg" alt="b4">
+        <img src="b5.jpg" alt="b5">
+    </section>
+    <article>
+        <header><h2>The Story of BloodLink 💗</h2></header>
+        <p>In Malaysia, blood donors receive a red book to track their donation history, but it can be easily lost or forgotten. This makes it difficult for donors to keep track of their eligibility and past contributions, which can lead to missed opportunities to donate.
+
+            BloodLink is a digital platform created to replace the traditional red book by providing an easier way for donors to view their donation history, receive reminders, and check upcoming blood donation events online. The system helps users stay informed and engaged by offering convenient access to essential donation information.
+            
+            Additionally, administrators can manage donor records, update donation histories and create or publish blood donation events by state. This makes the entire process more efficient and organized, helping both donors and organizers contribute to a more effective blood donation system.</p>
+    </article>
+    <div class="social-icons">
+        <a href="https://www.figma.com/design/19HkocX3ODbiYf8dz16Gpx/PROJECT-SYSTEM-DEV?node-id=0-1&p=f&t=6B9v0hkXyywTloMS-0" target="_blank">
+            <img src="figma.avif" alt="Figma" width="80">
+        </a>
+        <a href="" target="_blank">
+            <img src="insta1.png" alt="Email" width="80">
+        </a>
+        <a href="" target="_blank">
+            <img src="youtube1.png" alt="Youtube" width="80">
+        </a>
+    </div>
+
+    <div id="cookie-banner">
+        <p>This website uses cookies to ensure you get the best experience.</p>
+        <button id="accept-cookies">Accept</button>
+        <button id="reject-cookies">Reject</button>
+    </div>
+
+    <script>
+        window.onload = function () {
+            document.getElementById("cookie-banner").style.display = "block";
+        };
+
+        document.getElementById("accept-cookies").onclick = function () {
+            document.getElementById("cookie-banner").style.display = "none";
+        };
+
+        document.getElementById("reject-cookies").onclick = function () {
+            document.getElementById("cookie-banner").style.display = "none";
+        };
+    </script>
+</body>
+</html>    

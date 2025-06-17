@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - BloodLink</title>
+    <link rel="stylesheet" href="faq.css" type="text/css">
+</head>
+<body>
+    <header>
+        <div id="branding">
+            <img src="logo.jpg" alt="BloodLink Logo" id="logo">
+            <h1>BloodLink</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html" class="nav-btn">Home</a></li>
+                <li><a href="event.html" class="nav-btn">Event</a></li>
+                <li><a href="faq.html" class="nav-btn">FAQ</a></li> 
+                <li><a href="us.html" class="nav-btn">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="faq-section">
+        <h2>FAQ :</h2>
+        
+        <div class="faq-item">
+            <h3>WHO CAN DONATE ?</h3>
+            <p>Anyone who is healthy, aged between 17 and 60 years, and weighs at least 45 kilograms can donate blood. Before donating, you will go through a basic health screening to make sure it is safe for both you and the person receiving your blood. Factors like your medical history, recent travel, and lifestyle may affect your eligibility.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>AM I HEALTHY ENOUGH TO DONATE BLOOD ?</h3>
+            <p>You must be healthy enough to donate blood. Your health and safety is very important to us. You will be asked to fill up a blood donation questionnaire where your medical history will be asked. Blood pressure and a drop of blood will be taken for a hemoglobin test. All information provided by you is confidential.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>WHY SHOULD I DONATE BLOOD ?</h3>
+            <p>Every day blood is needed to save lives. Blood may be needed for surgery, accident victims or to treat patients with leukemia, cancer, heart disease, liver disease and hemophilia. Your contribution could save a life.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>HOW LONG DOES IT TAKE TO DONATE BLOOD ?</h3>
+            <p>The process of donating blood will take between 7-10 minutes, but you are advised to be at the blood collection site for approximately one hour.</p>
+        </div>
+       
+        <div class="faq-item">
+            <h3>HOW MUCH BLOOD WILL BE TAKEN ?</h3>
+            <p>A total of 450ml, which is less than 1 pint (586ml). Adults usually have about 5 liters (10-12 pints) of blood in the body.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>HOW DOES IT FEEL AFTER DONATING BLOOD ?</h3>
+            <p>Most people feel comfortable after donating blood. You are advised to have a light meal before donating blood.</p>
+        </div>
+       
+        <div class="faq-item">
+            <h3>CAN I DO SPORTS AFTER DONATING BLOOD ?</h3>
+            <p>Yes. Just avoid doing heavy activities for 5 hours after donating blood. Drink plenty of water within 24 hours.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>BENEFITS OF DONATING ?</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor...</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>DATE AND TIME ?</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor...</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>BENEFITS OF DONATING ?</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor...</p>
+        </div>
+
+    </section>
+    <div class="social-icons">
+        <a href="https://www.figma.com/design/19HkocX3ODbiYf8dz16Gpx/PROJECT-SYSTEM-DEV?node-id=0-1&p=f&t=6B9v0hkXyywTloMS-0" target="_blank">
+            <img src="figma.avif" alt="Figma" width="80">
+        </a>
+        <a href="" target="_blank">
+            <img src="insta1.png" alt="Email" width="80">
+        </a>
+        <a href="" target="_blank">
+            <img src="youtube1.png" alt="Youtube" width="80">
+        </a>
+    </div>
+</body>
+</html>

@@ -72,19 +72,61 @@ nav ul li {
 .cta-buttons button:hover {
     background-color: #f57d7d; /*appear when click button*/
 }
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin: 0 30px 50px;
+.slideshow {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
 }
-.gallery img {
-    width: 220px;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
+
+.slide {
+    display: none;
+    position: relative;
 }
+
+.slide img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.text-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 50px;
+}
+
+.btn-slide {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: white;
+    color: red;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+    transform: translateY(-50%);
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
 article {
     text-align: center;
     margin: 40px auto;
@@ -129,4 +171,21 @@ article {
 }
 #cookie-banner button:hover {
     background-color: #f3d6dc;
+}
+#user-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#user-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#user-icon img:hover {
+    transform: scale(1.1);
 }

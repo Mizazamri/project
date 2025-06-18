@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodLink</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="confirm.css">
+</head>
+<body>
+    
+         <div class="container">
+          <form>  
+        <div class="form-content">
+        <div class="form-box">
+            
+            <img id="imgformat" class="imageCenter" src="Image/logo.jpg" alt="logo">
+         <h1>Confirm Password</h1>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Your Password">
+        <label for="cnfrm-password">Confirm Password</label>
+        <input type="password" id="cnfrm-password" placeholder="Confirm Your Password">
+        <p id="message"></p>
+        <input type="button" onclick="checkPassword()" value="SUBMIT"/>
+    </form>
+    
+    <script>
+        function checkPassword()
+        {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("cnfrm-password").value;
+            const message = document.getElementById("message");
+
+            if(password === confirmPassword && password !== "")
+        {
+            message.style.color = "green";
+            message.textContent = "Passwords match!";
+
+            setTimeout(() =>
+        {
+            window.location.href = "login.html";
+        }, 1000);
+        }
+        else
+        {
+            message.style.color = "red";
+            message.textContent = "Passwords do not match!";
+        }
+        }
+</script>
+
+</body>
+</html>

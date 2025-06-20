@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost:8080";
+$servername = "localhost";
 $username = "d032310062";
 $password = "1234";
 $dbname = "project_bloodlink";

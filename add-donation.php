@@ -30,9 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $hemoglobin = $_POST['hemoglobin'] ?? null;
         $state = $_POST['state'];
         $event_id = !empty($_POST['event_id']) ? $_POST['event_id'] : null;
-
-        // Combine date and time
-        $donation_datetime = $_POST['donation_date'] . ' ' . $_POST['donation_time'] . ':00';
+        $donation_date = $_POST['donation_date'] ;
 
         // Step 3: Insert donation
         $sql = "INSERT INTO donation_record (
@@ -43,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($stmt === false) {
             die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
         } else {
-            $stmt->bind_param("sidddsisss", $donation_id, $donor_id, $weight, $height, $hemoglobin, $donation_datetime, $volume, $state, $blood_serial, $event_id);
+            $stmt->bind_param("sidddsisss", $donation_id, $donor_id, $weight, $height, $hemoglobin, $donation_date, $volume, $state, $blood_serial, $event_id);
 
             if ($stmt->execute()) {
                 $popupMessage = "✅ Donation added successfully!";

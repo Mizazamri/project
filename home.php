@@ -27,7 +27,6 @@
     </a>
 </div>
 
-    </header>
 
     <section class="intro">
         <h2>Intro</h2>
@@ -52,6 +51,22 @@
             <h2>Track Your Donations</h2>
             <p>Stay up to date with BloodLink</p>
             <a href="signin.php" class="btn-slide">Sign In</a>
+        </div>
+        <img src="image/b2.jpg" alt="Slide 2">
+    </div>
+    <div class="slide">
+        <div class="text-overlay">
+            <h2>Are you eligible?</h2>
+            <p>Find out more.</p>
+            <a href="findoutmore.php" class="btn-slide">Sign In</a>
+        </div>
+        <img src="image/b2.jpg" alt="Slide 2">
+    </div>
+    <div class="slide">
+        <div class="text-overlay">
+            <h2>Have donated?</h2>
+            <p>Look at your benefit here.</p>
+            <a href="benefit.php" class="btn-slide">Sign In</a>
         </div>
         <img src="image/b2.jpg" alt="Slide 2">
     </div>

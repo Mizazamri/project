@@ -48,15 +48,7 @@ if (isset($_GET['state']) || isset($_GET['district'])) {
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-    <header>
-        <h1>BloodLink</h1>
-        <nav>
-            <button onclick="navigate('home')">Home</button>
-            <button onclick="navigate('event')">Event</button>
-            <button onclick="navigate('faq')">FAQ</button>
-            <button onclick="navigate('about')">About Us</button>
-        </nav>
-    </header>
+    <?php include ("navbar.php") ?>
 
     <main>
         <div class="filters">

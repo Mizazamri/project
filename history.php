@@ -114,7 +114,7 @@ while ($row = $result->fetch_assoc()) {
 <body>
 
 <header>BloodLink - Donation History</header>
-
+<?php include ("navbar.php") ?>
 <div class="filter">
   <label for="sort">Sort by:</label>
   <select id="sort" onchange="sortRecords()">

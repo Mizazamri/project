@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "d032310062";
-$password = "1234";
+$username = "root";
+$password = "";
 $dbname = "project_bloodlink";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

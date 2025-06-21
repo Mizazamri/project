@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - BloodLink (Blood Donation)</title>
+    <title>Home - BloodLink</title>
     <link rel="stylesheet" href="home.css" type="text/css">
 </head>
 <body>
     <header>
         <div id="branding">
-            <img src="image/logo.jpg" alt="BloodLink Logo" id="logo">
+            <img src="image/logo.png" alt="BloodLink Logo" id="logo">
             <h1>BloodLink</h1>
         </div>
         <nav>

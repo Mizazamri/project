@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
     <style>
         .popup {
             position: fixed;
@@ -108,8 +108,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <div class="form-content">
         <div class="form-box">
-            <img id="imgformat" class="imageCenter" src="Image/logo.jpg" alt="logo">
-            <h1>Log In</h1>
+            <img id="imgformat" class="imageCenter" src="Image/logo.png" alt="logo">
+            <h2>Log In</h2>
 
             <?php if (!empty($error)): ?>
                 <div id="popup" class="popup">
@@ -119,37 +119,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif; ?>
 
             <form action="login.php" method="post">
-                <label><b>Email / Phone / ID:</b></label>
-                <input type="text" name="identifier" required value="<?= $_COOKIE['identifier'] ?? '' ?>">
+                <div class="input-box">
+                <label>Email / Phone / ID :</label><br>
+                <input type="text" name="identifier" required value="<?= $_COOKIE['identifier'] ?? '' ?>"><br>
+                </div>
 
-                <label><b>Password:</b></label>
+                <div class="input-box">
+                <br><label>Password :</br></label>
                 <input type="password" name="password" id="password" required>
-                <input type="checkbox" onclick="togglePassword()"> Show Password
+                </div>
 
-                <br><br>
-                <label><input type="checkbox" name="remember" <?= isset($_COOKIE['identifier']) ? 'checked' : '' ?>> Remember Me</label>
-
+                <br><input type="checkbox" name="remember" <?= isset($_COOKIE['identifier']) ? 'checked' : '' ?>> Remember Me
+                
                 <div class="btn-row">
-                    <button type="submit" class="btn-signup">Log In</button>
-                    <button type="reset" class="btn-cancel">Cancel</button>
+                <a href="home.php" class="btn-login">Log In</a>
+                <a href="home.php" class="btn-cancel">Cancel</a>
                 </div>
             </form>
 
             <div class="new-account">
-                <p><a href="signin.php">Don't have an account?</a></p>
+                <p>Don't have an account? <a href="signup.php">Register</a></p>
             </div>
             <div class="psw-center">
-                <a href="#">Forgot Password?</a>
+                <a href="forget.html">Forgot Password?</a>
             </div>
         </div>
     </div>
 </div>
 
-<script>
-function togglePassword() {
-    var x = document.getElementById("password");
-    x.type = x.type === "password" ? "text" : "password";
-}
-</script>
 </body>
 </html>

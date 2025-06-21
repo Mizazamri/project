@@ -59,13 +59,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Sign In</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="signup.css">
 </head>
 <body>
 <div class="container">
     <div class="form-content">
         <div class="form-box">
-            <img id="imgformat" class="imageCenter" src="Image/logo.jpg" alt="logo">
+            <img id="imgformat" class="imageCenter" src="Image/logo.png" alt="logo">
             <h1>Sign In</h1>
 
             <!-- Show success or error message -->

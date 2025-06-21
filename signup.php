@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form-content">
         <div class="form-box">
             <img id="imgformat" class="imageCenter" src="Image/logo.png" alt="logo">
-            <h1>Sign In</h1>
+            <h2>Sign In</h2>
 
             <!-- Show success or error message -->
             <?php if ($submitted && $success): ?>
@@ -75,8 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p style="color: red; font-weight: bold;"><?= $error ?></p>
             <?php endif; ?>
 
-            <form method="post" action="">
-                <table class="center">
+            <form method="post" action="signup.php">
+                <table>
                     <tr>
                         <td><label for="full_name">Full Name:</label></td>
                         <td><input type="text" name="full_name" id="full_name" required></td>
@@ -110,14 +110,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <td><input type="date" name="date_of_birth" id="date_of_birth" required></td>
                     </tr>
                     <tr>
-                        <td>Gender:</td>
+                        <td><label for="gender">Gender::</label></td>
                         <td>
                             <input type="radio" name="gender" value="Male" required> Male
                             <input type="radio" name="gender" value="Female" required> Female
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="mobile_number">Mobile Num:</label></td>
+                        <td><label for="mobile_number">Mobile Number:</label></td>
                         <td><input type="tel" name="mobile_number" id="mobile_number" required></td>
                     </tr>
                     <tr>
@@ -136,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <tr>
                         <td colspan="2" style="text-align: center">
                             <div class="btn-row">
-                                <input class="btn-s" type="submit" value="Sign In">
+                                <input class="btn-s" type="submit" value="Sign Up">
                                 <input class="btn-r" type="reset" value="Clear Form">
                             </div>
                         </td>

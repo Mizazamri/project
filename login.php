@@ -2,7 +2,7 @@
 session_start();
 include("connect.php");
 
-//error message
+//error message here
 $error = "";
 
 // Generate CSRF token if not set

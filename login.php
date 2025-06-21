@@ -4,75 +4,94 @@ include("connect.php");
 
 $error = "";
 
+// Generate CSRF token if not set
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $identifier = $_POST['identifier'] ?? '';
-    $password = $_POST['password'] ?? '';
+    // Validate CSRF token
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        $error = "Invalid CSRF token.";
+    } else {
+        $identifier = trim($_POST['identifier'] ?? '');
+        $password = trim($_POST['password'] ?? '');
 
-    // First, check if it's an admin
-    $sqlAdmin = "SELECT * FROM hospital_admin WHERE email = ?";
-    $stmtAdmin = $conn->prepare($sqlAdmin);
-    $stmtAdmin->bind_param("s", $identifier);
-
-    if ($stmtAdmin->execute()) {
-        $resultAdmin = $stmtAdmin->get_result();
-        if ($resultAdmin->num_rows === 1) {
-            $admin = $resultAdmin->fetch_assoc();
-
-            if ($password === $admin['password']) {
-                $_SESSION['email'] = $admin['email'];
-                $_SESSION['hospital_name'] = $admin['hospital_name'];
-
-                if (!empty($_POST['remember'])) {
-                    setcookie("identifier", $identifier, time() + (86400 * 7)); // 1 week
-                } else {
-                    setcookie("identifier", "", time() - 3600); // Delete cookie
-                }
-
-                header("Location: admin-home.php");
-                exit();
-            } else {
-                $error = "Invalid password for admin.";
-            }
+        // Input validation
+        if (empty($identifier) || empty($password)) {
+            $error = "All fields are required.";
+        } elseif (
+            !filter_var($identifier, FILTER_VALIDATE_EMAIL) &&
+            !preg_match('/^01[0-9]-\d{7}$/', $identifier) &&
+            !preg_match('/^\d{6}-\d{2}-\d{4}$/i', $identifier)
+        ) {
+            $error = "Invalid email, phone number, or ID format.";
         } else {
-            // Not admin, check donor table
-            $sql = "SELECT * FROM donor WHERE email = ? OR mobile_number = ? OR id_card_number = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sss", $identifier, $identifier, $identifier);
+            // Check hospital_admin
+            $sqlAdmin = "SELECT * FROM hospital_admin WHERE email = ?";
+            $stmtAdmin = $conn->prepare($sqlAdmin);
+            $stmtAdmin->bind_param("s", $identifier);
 
-            if ($stmt->execute()) {
-                $result = $stmt->get_result();
-                if ($result->num_rows === 1) {
-                    $user = $result->fetch_assoc();
-
-                    if (password_verify($password, $user['password'])) {
-                        $_SESSION['username'] = $user['username'];
-                        $_SESSION['email'] = $user['email'];
+            if ($stmtAdmin->execute()) {
+                $resultAdmin = $stmtAdmin->get_result();
+                if ($resultAdmin->num_rows === 1) {
+                    $admin = $resultAdmin->fetch_assoc();
+                    if (password_verify($password, $admin['password'])) {
+                        $_SESSION['email'] = $admin['email'];
+                        $_SESSION['hospital_name'] = $admin['hospital_name'];
 
                         if (!empty($_POST['remember'])) {
-                            setcookie("identifier", $identifier, time() + (86400 * 7)); // 1 week
+                            setcookie("identifier", $identifier, time() + (86400 * 7), "/");
                         } else {
-                            setcookie("identifier", "", time() - 3600); // Delete cookie
+                            setcookie("identifier", "", time() - 3600, "/");
                         }
 
-                        header("Location: home.php");
+                        header("Location: admin-home.php");
                         exit();
                     } else {
                         $error = "Invalid password.";
                     }
                 } else {
-                    $error = "Account not found.";
+                    // Check donor
+                    $sql = "SELECT * FROM donor WHERE email = ? OR mobile_number = ? OR id_card_number = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("sss", $identifier, $identifier, $identifier);
+
+                    if ($stmt->execute()) {
+                        $result = $stmt->get_result();
+                        if ($result->num_rows === 1) {
+                            $user = $result->fetch_assoc();
+                            if (password_verify($password, $user['password'])) {
+                                $_SESSION['username'] = $user['username'];
+                                $_SESSION['email'] = $user['email'];
+
+                                if (!empty($_POST['remember'])) {
+                                    setcookie("identifier", $identifier, time() + (86400 * 7), "/");
+                                } else {
+                                    setcookie("identifier", "", time() - 3600, "/");
+                                }
+
+                                header("Location: home.php");
+                                exit();
+                            } else {
+                                $error = "Invalid password.";
+                            }
+                        } else {
+                            $error = "Account not found.";
+                        }
+                        $stmt->close();
+                    } else {
+                        $error = "Database error.";
+                    }
                 }
+                $stmtAdmin->close();
             } else {
                 $error = "Database error.";
             }
-            $stmt->close();
         }
-    } else {
-        $error = "Database error.";
-    }
 
-    $stmtAdmin->close();
-    $conn->close();
+        $conn->close();
+    }
 }
 ?>
 
@@ -113,27 +132,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <?php if (!empty($error)): ?>
                 <div id="popup" class="popup">
-                    <?= $error ?>
+                    <?= htmlspecialchars($error) ?>
                     <span class="close-btn" onclick="document.getElementById('popup').style.display='none'">❌</span>
                 </div>
             <?php endif; ?>
 
             <form action="login.php" method="post">
+                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
                 <div class="input-box">
-                <label>Email / Phone / ID :</label><br>
-                <input type="text" name="identifier" required value="<?= $_COOKIE['identifier'] ?? '' ?>"><br>
+                    <label>Email / Phone / ID:</label><br>
+                    <input type="text" name="identifier" required value="<?= htmlspecialchars($_COOKIE['identifier'] ?? '') ?>"><br>
                 </div>
 
                 <div class="input-box">
-                <br><label>Password :</br></label>
-                <input type="password" name="password" id="password" required>
+                    <br><label>Password:</label>
+                    <input type="password" name="password" required>
                 </div>
 
                 <br><input type="checkbox" name="remember" <?= isset($_COOKIE['identifier']) ? 'checked' : '' ?>> Remember Me
-                
+
                 <div class="btn-row">
-                <a href="home.php" class="btn-login">Log In</a>
-                <a href="home.php" class="btn-cancel">Cancel</a>
+                    <button type="submit" class="btn-login">Log In</button>
+                    <a href="home.php" class="btn-cancel">Cancel</a>
                 </div>
             </form>
 
@@ -146,6 +167,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </div>
-
 </body>
 </html>

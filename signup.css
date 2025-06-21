@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#imgformat
+{
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px auto;
+}
+
+.form-box
+{
+    width: 100%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #EBEAEA;
+    padding: 50px 60px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.form-box h2
+{
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 60px;
+    color: #dc3545;
+    position: relative;
+    text-align: center;
+}
+
+.form-box h2::after
+{
+    content:'';
+    width: 30px;
+    height: 4px;
+    border-radius: 3px;
+    background: #dc3545;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-row
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.btn:hover
+{
+    opacity: 1;
+}
+
+.btn-signup
+{
+    background-color: transparent;
+    color: #dc3545;
+    border: 2px solid #dc3545;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex: 1;
+}
+
+.btn-signup:hover
+{
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-s
+{
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1;
+}
+
+.btn-s:hover
+{
+    background-color: #c82333;
+}
+
+.btn-r
+{
+    background-color: transparent;
+    color: #dc3545;
+    border: 2px solid #dc3545;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex: 1;
+}
+
+.btn-r:hover
+{
+    background-color: #dc3545;
+    color: white;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea 
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.already-account {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.validation-box {
+    position: relative;
+    top:auto;
+    left: auto;
+    transform: none;
+    margin: 20px auto;
+    max-width: 450px;
+    width: 90%;
+    background: #fff;
+    padding: 50px 60px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+body.validation-page .form-box
+{
+    position: static;
+    margin: 20px auto;
+    transform: none;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}

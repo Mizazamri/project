@@ -7,27 +7,8 @@
     <link rel="stylesheet" href="home.css" type="text/css">
 </head>
 <body>
-    <header>
-        <div id="branding">
-            <img src="image/logo.jpg" alt="BloodLink Logo" id="logo">
-            <h1>BloodLink</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="home.php" class="nav-btn">Home</a></li>
-                <li><a href="event.php" class="nav-btn">Event</a></li>
-                <li><a href="faq.php" class="nav-btn">FAQ</a></li> 
-                <li><a href="aboutus.php" class="nav-btn">About Us</a></li>
-                <li><a href="profile.php" class="nav-btn">Profile</a></li>
-            </ul>
-        </nav>
-        <div id="user-icon">
-            <a href="profile.php" title="Profile">
-        <img src="image/user-icon.png" alt="User Icon">
-    </a>
-</div>
+    <?php include("navbar.php"); ?>
 
-    </header>
 
     <section class="intro">
         <h2>Intro</h2>
@@ -52,6 +33,22 @@
             <h2>Track Your Donations</h2>
             <p>Stay up to date with BloodLink</p>
             <a href="signin.php" class="btn-slide">Sign In</a>
+        </div>
+        <img src="image/b2.jpg" alt="Slide 2">
+    </div>
+    <div class="slide">
+        <div class="text-overlay">
+            <h2>Are you eligible?</h2>
+            <p>Find out more.</p>
+            <a href="findoutmore.php" class="btn-slide">Sign In</a>
+        </div>
+        <img src="image/b2.jpg" alt="Slide 2">
+    </div>
+    <div class="slide">
+        <div class="text-overlay">
+            <h2>Have donated?</h2>
+            <p>Look at your benefit here.</p>
+            <a href="benefit.php" class="btn-slide">Sign In</a>
         </div>
         <img src="image/b2.jpg" alt="Slide 2">
     </div>

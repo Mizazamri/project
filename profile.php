@@ -157,18 +157,7 @@ $user = $result->fetch_assoc();
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://via.placeholder.com/40x40" alt="Logo">
-      <span>BloodLink</span>
-    </div>
-    <nav>
-      <button onclick="location.href='home.php'">Home</button>
-      <button onclick="location.href='event.php'">Event</button>
-      <button onclick="location.href='faq.php'">FAQ</button>
-      <button onclick="location.href='aboutus.php'">About Us</button>
-    </nav>
-  </header>
+  <?php include ("navbar.php") ?>
 
   <?php if ($error): ?>
     <div class="error"><?php echo $error; ?></div>

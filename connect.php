@@ -1,6 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "d032310062";
+$servername = "localhost:3307";
+$username = "root";
 $password = "1234";
 $dbname = "project_bloodlink";
 

@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form-content">
         <div class="form-box">
             <img id="imgformat" class="imageCenter" src="Image/logo.png" alt="logo">
-            <h2>Sign In</h2>
+            <h2>Sign Up</h2>
 
             <!-- Show success or error message -->
             <?php if ($submitted && $success): ?>
@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <td><input type="date" name="date_of_birth" id="date_of_birth" required></td>
                     </tr>
                     <tr>
-                        <td><label for="gender">Gender::</label></td>
+                        <td><label for="gender">Gender:</label></td>
                         <td>
                             <input type="radio" name="gender" value="Male" required> Male
                             <input type="radio" name="gender" value="Female" required> Female
@@ -132,20 +132,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <option value="NA">Not Sure Yet</option>
                             </select>
                         </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: center">
-                            <div class="btn-row">
-                                <input class="btn-s" type="submit" value="Sign Up">
-                                <input class="btn-r" type="reset" value="Clear Form">
-                            </div>
-                        </td>
-                    </tr>
+                    </tr> 
                 </table>
+                <div class="btn-row">
+                    <input class="btn-sign" type="submit" value="Sign Up">
+                    <input class="btn-clear" type="reset" value="Clear Form">
+                </div> 
             </form>
 
             <div class="already-account">
-                <p><a href="login.php">Already have an account?</a></p>
+                <p>Already have an account? <a href="login.php">Log In</a></p>
             </div>
         </div>
     </div>

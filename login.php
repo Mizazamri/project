@@ -5,6 +5,7 @@ include("connect.php");
 //error message here
 $error = "";
 
+
 // Generate CSRF token if not set
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -28,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ) {
             $error = "Invalid email, phone number, or ID format.";
         } else {
+
             // Check hospital_admin
             $sqlAdmin = "SELECT * FROM hospital_admin WHERE email = ?";
             $stmtAdmin = $conn->prepare($sqlAdmin);
@@ -38,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($resultAdmin->num_rows === 1) {
                     $admin = $resultAdmin->fetch_assoc();
                     if (password_verify($password, $admin['password'])) {
+                        $_SESSION['hospital_id'] = $admin['hospital_id']; // ✅ Add this
                         $_SESSION['email'] = $admin['email'];
                         $_SESSION['hospital_name'] = $admin['hospital_name'];
 
@@ -49,7 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         header("Location: admin-home.php");
                         exit();
-                    } else {
+                    }
+                    else {
                         $error = "Invalid password.";
                     }
                 } else {

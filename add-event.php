@@ -1,7 +1,15 @@
 <?php
+session_start();
+if (!isset($_SESSION['hospital_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 include("connect.php");
+
 $success = false;
 $error = "";
+$title = $state = $district = $event_date = $start_time = $end_time = $description = $location = $imagePath = "";
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -13,34 +21,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $end_time = $_POST['end_time'] ?? '';
     $description = $_POST['event_details'] ?? '';
     $location = $_POST['location'] ?? '';
-
-    $start_datetime = date("Y-m-d H:i:s", strtotime("$event_date $start_time"));
-    $end_datetime = date("Y-m-d H:i:s", strtotime("$event_date $end_time"));
-
+    $hospital_id = $_SESSION['hospital_id'];
     $event_id = "EVT" . date("YmdHis", strtotime("$event_date $start_time")) . rand(100, 999);
 
-    // Handle image upload
-    $imagePath = "";
+    // Image upload
     if (isset($_FILES['event_image']) && $_FILES['event_image']['error'] === UPLOAD_ERR_OK) {
-        $fileTmpPath = $_FILES['event_image']['tmp_name'];
-        $fileName = uniqid() . "_" . basename($_FILES['event_image']['name']);
-        $uploadDir = "eventimg/";
-        $imagePath = $uploadDir . $fileName;
+        $tmp = $_FILES['event_image']['tmp_name'];
+        $name = uniqid() . "_" . basename($_FILES['event_image']['name']);
+        $type = mime_content_type($tmp);
+        $size = $_FILES['event_image']['size'];
 
-        if (!move_uploaded_file($fileTmpPath, $imagePath)) {
-            $error = "Image upload failed.";
+        if (!in_array($type, ['image/jpeg', 'image/png', 'image/gif'])) {
+            $error = "Invalid image type.";
+        } elseif ($size > 2 * 1024 * 1024) {
+            $error = "Image must be under 2MB.";
+        } else {
+            $imagePath = "eventimg/" . $name;
+            move_uploaded_file($tmp, $imagePath);
         }
+    } else {
+        $error = "Image required.";
     }
 
     if (!$error) {
-        $stmt = $conn->prepare("INSERT INTO event (event_id, image_path, event_name, state, district, starttime, endtime, event_details,location) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
-        $stmt->bind_param("sssssssss", $event_id, $imagePath, $title, $state, $district, $start_datetime, $end_datetime, $description,$location);
+        $stmt = $conn->prepare("INSERT INTO event (event_id, image_path, event_name, state, district, event_date, starttime, endtime, event_details, location) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssssss", $event_id, $imagePath, $title, $state, $district, $event_date, $start_time, $end_time, $description, $location);
 
         if ($stmt->execute()) {
-            $success = true;
+            $stmt2 = $conn->prepare("INSERT INTO event_management (event_id, hospital_id) VALUES (?, ?)");
+            $stmt2->bind_param("si", $event_id, $hospital_id);
+            if ($stmt2->execute()) {
+                $success = true;
+            } else {
+                $error = "Failed to link hospital to event: " . $stmt2->error;
+            }
+            $stmt2->close();
         } else {
             $error = "Database error: " . $stmt->error;
         }
+        $stmt->close();
     }
 }
 ?>
@@ -178,14 +197,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <main>
   <h2>Add Event</h2>
   <?php if ($success): ?>
-    <div style="background: #d4edda; color: #155724; padding: 1rem; border-radius: 5px; margin-bottom: 1rem;">
-      ✅ Event added successfully!
-    </div>
-  <?php elseif ($error): ?>
-    <div style="background: #f8d7da; color: #721c24; padding: 1rem; border-radius: 5px; margin-bottom: 1rem;">
-      ❌ <?= htmlspecialchars($error) ?>
-    </div>
-  <?php endif; ?>
+    <div>✅ Event added. <a href="event.php">View events</a></div>
+<?php elseif ($error): ?>
+    <div>❌ <?= htmlspecialchars($error) ?></div>
+<?php endif; ?>
 
   <form id="eventForm" method="POST" enctype="multipart/form-data">
     <div class="form-grid">
@@ -278,7 +293,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   const districtMap = {
-    "Johor": ["Batu Pahat", "Johor Bahru", "Kluang","Kota Tinggi","Mersing","Muar","Pontian","Segamat"],
+    "Johor": ["Batu Pahat", "Johor Bahru", "Kluang","Kota Tinggi","Kulaijaya","Mersing","Muar","Pontian","Segamat"],
     "Kedah": ["Kota Setar","Kubang Pasu","Padang Terap","Langkawi","Kuala Muda", "Yan", "Sik","Baling","Kulim","Bandar Baharu","Pendang","Pokok Sena"],
     "Kelantan": ["Bachok","Kota Bharu","Machang", "Pasir Mas","Pasir Puteh","Tanah Merah" ,"Tumpat","Gua Musang","Kuala Krai","Jeli"],
     "Melaka": ["Melaka Tengah","Jasin","Alor Gajah"],

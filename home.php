@@ -4,38 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - BloodLink</title>
-    <link rel="stylesheet" href="home.css" type="text/css">
+    <link rel="stylesheet" href="home2.css" type="text/css">
 </head>
 <body>
-    <header>
-        <div id="branding">
-            <img src="image/logo.png" alt="BloodLink Logo" id="logo">
-            <h1>BloodLink</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="home.php" class="nav-btn">Home</a></li>
-                <li><a href="event.php" class="nav-btn">Event</a></li>
-                <li><a href="faq.php" class="nav-btn">FAQ</a></li> 
-                <li><a href="aboutus.php" class="nav-btn">About Us</a></li>
-                <li><a href="profile.php" class="nav-btn">Profile</a></li>
-            </ul>
-        </nav>
-        <div id="user-icon">
-            <a href="profile.php" title="Profile">
-        <img src="image/user-icon.png" alt="User Icon">
-    </a>
-</div>
-
+    <?php include("navbar.php"); ?>
 
     <section class="intro">
-        <h2>Intro</h2>
-        <p class="subtitle">subtitle</p>
-        <div class="cta-buttons">
-            <button>🩸 donate now!</button>
-            <button>💬 let's get to know more about blood donation! 💉</button>
-        </div>
-    </section>
+    <h1>Intro</h1>
+    <p class="subtitle">Subtitle</p>
+    <div class="cta-buttons">
+      <button>🩸 donate now!</button>
+      <button>📘 let's get to know more about blood donation!</button>
+    </div>
+  </section>
 
     <section class="slideshow">
     <div class="slide" style="display:block;">

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - BloodLink</title>
-    <link rel="stylesheet" href="home2.css" type="text/css">
+    <link rel="stylesheet" href="home.css" type="text/css">
 </head>
 <body>
     <?php include("navbar.php"); ?>
@@ -13,7 +13,8 @@
     <h1>Intro</h1>
     <p class="subtitle">Subtitle</p>
     <div class="cta-buttons">
-      <button>🩸 donate now!</button>
+      <a href="login.php"><button>🩸 Donate Now!</button></a>
+        
       <button>📘 let's get to know more about blood donation!</button>
     </div>
   </section>

@@ -67,7 +67,7 @@
     opacity: 1;
 }
 
-.btn-cancel {
+.btn-login {
     background-color: #dc3545;
     color: white;
     text-decoration: none;
@@ -81,11 +81,11 @@
     flex: 1;
 }
 
-.btn-cancel:hover {
+.btn-login:hover {
     background-color: #c82333;
 }
 
-.btn-login {
+.btn-cancel {
     background-color: transparent;
     font-family: arial;
     text-decoration: none;
@@ -100,7 +100,7 @@
     flex: 1;
 }
 
-.btn-login:hover {
+.btn-cancel:hover {
     background-color: #dc3545;
     color: white;
 }

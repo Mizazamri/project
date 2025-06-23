@@ -10,6 +10,10 @@ body {
   color: #333;
 }
 
+image {
+  height: 70px;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -248,4 +252,42 @@ article {
 
 #cookie-banner button:hover {
   background-color: #f3d6dc;
+}
+
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  min-width: 120px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+  border-radius: 6px;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+.profile-dropdown:hover .dropdown-content {
+  display: block;
 }

@@ -55,7 +55,7 @@ if (isset($_GET['state']) || isset($_GET['district'])) {
   <meta charset="UTF-8">
   <title>BloodLink Events</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="events.css">
+  <link rel="stylesheet" href="event.css">
 </head>
 
 <body>

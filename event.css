@@ -31,7 +31,7 @@ h2 {
 
 .filters select {
     padding: 10px;
-    border-radius: 5px;
+        border-radius: 5px;
     border: 1px solid #ccc;
     min-width: 180px;
     background-color: white;

@@ -196,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <a href="admin-home.php">Home</a>
     <a class="active" href="add-donation.php">Add Donation</a>
     <a href="add-event.php">Add Event</a>
-    <a href="#">About Us</a>
+    <a href="">About Us</a>
   </nav>
 </header>
 

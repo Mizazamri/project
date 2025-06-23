@@ -65,65 +65,65 @@
 <?php include("navbar.php") ?>
 
 <div class="container">
-  
-  <h1>❓ Soalan Lazim (FAQ)</h1>
+<h1>❓ Frequently Asked Questions (FAQ)</h1>
 
   <div class="tabs">
-    <button class="tab-button active" onclick="showTab('general')">Umum</button>
-    <button class="tab-button" onclick="showTab('health')">Kesihatan</button>
-    <button class="tab-button" onclick="showTab('system')">Sistem BloodLink</button>
-    <button class="tab-button" onclick="showTab('support')">Akses & Sokongan</button>
+    <button class="tab-button active" onclick="showTab('general')">General</button>
+    <button class="tab-button" onclick="showTab('health')">Health</button>
+    <button class="tab-button" onclick="showTab('system')">BloodLink System</button>
+    <button class="tab-button" onclick="showTab('support')">Access & Support</button>
   </div>
 
+  <!-- GENERAL -->
   <div id="general" class="faq-content active">
     <div class="faq-item">
-      <h3>Siapa yang layak menderma darah?</h3>
-      <p>Individu sihat berumur 17–70 tahun, berat minimum 45kg, dan tidak menghidap penyakit tertentu.</p>
+      <h3>Who is eligible to donate blood?</h3>
+      <p>Healthy individuals aged 17–70 years, with a minimum weight of 45kg, and without certain medical conditions.</p>
     </div>
     <div class="faq-item">
-      <h3>Berapa kerap saya boleh menderma darah?</h3>
-      <p>Setiap 3 bulan untuk darah penuh, atau mengikut nasihat pusat darah.</p>
+      <h3>How often can I donate blood?</h3>
+      <p>Every 3 months for whole blood, or according to the advice of the blood center.</p>
     </div>
     <div class="faq-item">
-      <h3>Adakah proses pendermaan menyakitkan?</h3>
-      <p>Tidak terlalu sakit, hanya seperti dicucuk jarum biasa.</p>
+      <h3>Is the donation process painful?</h3>
+      <p>Not very painful, it feels like a regular needle prick.</p>
     </div>
   </div>
 
+  <!-- HEALTH -->
   <div id="health" class="faq-content">
     <div class="faq-item">
-      <h3>Adakah selamat untuk menderma darah semasa haid?</h3>
-      <p>Tidak digalakkan. Tunggu 3 hari selepas haid berakhir.</p>
+      <h3>Is it safe to donate blood during menstruation?</h3>
+      <p>Not recommended. Please wait 3 days after your period ends.</p>
     </div>
     <div class="faq-item">
-      <h3>Adakah darah saya akan diuji?</h3>
-      <p>Ya. Semua darah diuji untuk penyakit berjangkit seperti HIV, Hepatitis B & C.</p>
+      <h3>Will my blood be tested?</h3>
+      <p>Yes. All donated blood is screened for infectious diseases such as HIV, Hepatitis B & C.</p>
     </div>
     <div class="faq-item">
-      <h3>Apa yang perlu saya buat selepas menderma?</h3>
-      <p>Rehat secukupnya, minum air, elakkan aktiviti berat 6–8 jam.</p>
+      <h3>What should I do after donating?</h3>
+      <p>Get enough rest, drink water, and avoid heavy activities for 6–8 hours.</p>
     </div>
   </div>
 
+  <!-- SYSTEM -->
   <div id="system" class="faq-content">
     <div class="faq-item">
-      <h3>Bagaimana untuk melihat sejarah pendermaan saya?</h3>
-      <p>Log masuk dan pergi ke halaman "View History".</p>
+      <h3>How can I view my donation history?</h3>
+      <p>Log in and go to the "View History" page.</p>
     </div>
     <div class="faq-item">
-      <h3>Bolehkah saya tukar maklumat profil?</h3>
-      <p>Ya, pergi ke halaman "Profile" dan klik "Edit".</p>
+      <h3>Can I change my profile information?</h3>
+      <p>Yes, go to the "Profile" page and click "Edit".</p>
     </div>
-    <div class="faq-item">
-      <h3>Apa itu kad CUE?</h3>
-      <p>Kad pengecualian sukarela jika penderma rasa darah tidak selamat untuk didermakan.</p>
-    </div>
+    
   </div>
 
+  <!-- SUPPORT -->
   <div id="support" class="faq-content">
     <div class="faq-item">
-      <h3>Bagaimana saya tahu ada kempen darah berhampiran?</h3>
-      <p>Semak di halaman "Event", atau ikuti kami di Instagram.</p>
+      <h3>How do I know if there’s a blood donation campaign near me?</h3>
+      <p>Check the "Event" page or follow us on Instagram.</p>
     </div>
   </div>
 </div>

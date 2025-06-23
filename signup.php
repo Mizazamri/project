@@ -65,7 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <div class="form-content">
         <div class="form-box">
-            <img id="imgformat" class="imageCenter" src="Image/logo.png" alt="logo">
+            <a href="home.php">
+                <img id="imgformat" class="imageCenter" src="Image/logo.png" alt="logo">
+            </a>
             <h2>Sign Up</h2>
 
             <!-- Show success or error message -->

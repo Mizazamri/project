@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="manage-event.css" type="text/css" >
 </head>
 <body>
-<?php include("navbar.php"); ?>
+<?php include("admin-navbar.php"); ?>
 <main>
     <h2><?= ucfirst($action) ?> Event</h2>
 

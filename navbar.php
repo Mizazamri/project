@@ -31,8 +31,9 @@ if (session_status() === PHP_SESSION_NONE) {
       <?php if (isset($_SESSION['email'])): ?>
         <?php
           $defaultImage = 'image/user-icon.png';
-          $profileImage = (!empty($_SESSION['profile_picture']) && file_exists($_SESSION['profile_picture']))
-              ? $_SESSION['profile_picture'] : $defaultImage;
+$profileImage = (!empty($_SESSION['profile_picture']) && file_exists($_SERVER['DOCUMENT_ROOT'] . '/' . $_SESSION['profile_picture']))
+    ? $_SESSION['profile_picture'] : $defaultImage;
+
         ?>
         <div class="profile-dropdown">
           <img src="<?= htmlspecialchars($profileImage) ?>" alt="Profile" class="profile-icon">

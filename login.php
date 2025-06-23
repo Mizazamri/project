@@ -20,12 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Validate input
         if (empty($identifier) || empty($password)) {
             $error = "All fields are required.";
-        } elseif (
-            !filter_var($identifier, FILTER_VALIDATE_EMAIL) &&
-            !preg_match('/^01[0-9]-\d{7}$/', $identifier) &&
-            !preg_match('/^\d{6}-\d{2}-\d{4}$/i', $identifier)
-        ) {
-            $error = "Invalid email, phone number, or ID format.";
         } else {
             // --- Try hospital_admin first ---
             $stmtAdmin = $conn->prepare("SELECT * FROM hospital_admin WHERE email = ?");

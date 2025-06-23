@@ -3,23 +3,59 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <title>Ketahui Lebih Lanjut - BloodLink</title>
+  <title>Find Out More - BloodLink</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #fff; padding: 20px; }
-    h1, h2 { color: #d23241; }
-    .accordion { cursor: pointer; padding: 15px; border: none; background-color: #f1f1f1; color: #333; width: 100%; text-align: left; outline: none; font-size: 18px; transition: 0.3s; margin-top: 10px; }
-    .active, .accordion:hover { background-color: #ddd; }
-    .panel { padding: 0 18px; display: none; background-color: #fafafa; overflow: hidden; border-left: 4px solid #d23241; margin-bottom: 10px; }
-    ul { padding-left: 20px; }
-    .callout { background: #fff3cd; padding: 10px; border-left: 5px solid #ffc107; margin-top: 10px; }
-    .emergency { background: #f8d7da; border-left: 5px solid #dc3545; color: #721c24; }
+    h1, h2 {
+      color: #d23241;
+    }
+
+    .accordion {
+      cursor: pointer;
+      padding: 15px;
+      border: none;
+      background-color: #f1f1f1;
+      color: #333;
+      width: 100%;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .active, .accordion:hover {
+      background-color: #ddd;
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: #fafafa;
+      overflow: hidden;
+      border-left: 4px solid #d23241;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .callout {
+      background: #fff3cd;
+      padding: 10px;
+      border-left: 5px solid #ffc107;
+      margin-top: 10px;
+    }
+
+    .emergency {
+      background: #f8d7da; border-left: 5px solid #dc3545; color: #721c24;
+    }
   </style>
 </head>
 <body>
 
-<h1>🩸 Learn More About Blood Donation</h1>
+<br><h1>🩸 Learn More About Blood Donation</h1><br>
 
-<!-- Eligibility Requirements -->
 <button class="accordion">✅ Eligibility Criteria</button>
 <div class="panel">
   <ul>
@@ -85,7 +121,7 @@
       <li>Experience prolonged dizziness, numbness, or swelling</li>
     </ul>
     <b>Hotline: 03-26132688 </b>
-    <img src="Hotline1.jpeg">
+    <img src="image/Hotline1.jpeg">
   </div>
 </div>
 

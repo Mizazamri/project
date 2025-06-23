@@ -37,7 +37,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="text-overlay">
             <h2>Track Your Donations</h2>
             <p>Stay up to date with BloodLink</p>
-            <a href="signin.php" class="btn-slide">Sign In</a>
+            <a href="signup.php" class="btn-slide">Sign Up</a>
         </div>
         <img src="image/b2.jpg" alt="Slide 2">
     </div>

@@ -123,7 +123,7 @@
   </style>
 </head>
 <body>
-    <?php include "admin-navbar.php"; ?>
+    <?php include "navbar.php"; ?>
 
   <!-- Slideshow -->
   <div class="slideshow-container">

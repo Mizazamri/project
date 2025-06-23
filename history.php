@@ -38,85 +38,8 @@ while ($row = $result->fetch_assoc()) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BloodLink Donation History</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #f9f9f9;
-    }
-    header {
-      background-color: #d23241;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-      font-size: 24px;
-    }
-    .filter {
-      text-align: right;
-      margin: 10px 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      margin-top: 20px;
-    }
-    th, td {
-      padding: 12px;
-      border: 1px solid #ddd;
-      text-align: center;
-    }
-    th {
-      background: #d23241;
-      color: white;
-    }
-    .no-records {
-      text-align: center;
-      margin: 20px;
-      color: #777;
-      font-size: 18px;
-    }
-    button {
-      margin: 30px auto 0;
-      display: block;
-      padding: 10px 20px;
-      background: #d23241;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-      thead tr {
-        display: none;
-      }
-      td {
-        position: relative;
-        padding-left: 50%;
-        text-align: left;
-      }
-      td::before {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        font-weight: bold;
-        color: #d23241;
-        white-space: nowrap;
-      }
-      td:nth-child(1)::before { content: "Date"; }
-      td:nth-child(2)::before { content: "Serial Number"; }
-      td:nth-child(3)::before { content: "Amount"; }
-      td:nth-child(4)::before { content: "Weight (kg)"; }
-      td:nth-child(5)::before { content: "Height (cm)"; }
-      td:nth-child(6)::before { content: "Hemoglobin"; }
-      td:nth-child(7)::before { content: "Location"; }
-    }
-  </style>
+  <link rel="stylesheet" href="history.css">
+
   <script>
     function sortRecords() {
       const sortOrder = document.getElementById("sort").value;
@@ -133,7 +56,6 @@ while ($row = $result->fetch_assoc()) {
 </head>
 <body>
 
-<header>BloodLink - Donation History</header>
 <?php include ("navbar.php") ?>
 
 <div class="filter">
@@ -175,8 +97,8 @@ while ($row = $result->fetch_assoc()) {
   <div class="no-records">No donation history available.</div>
 <?php endif; ?>
 
-<button onclick="printRecords()">Print Records</button>
+<button onclick="printRecords()">Print Records</button><br><br>
 
-<?php include ("footer.html") ?>
 </body>
+<?php include ("footer.html") ?>
 </html>

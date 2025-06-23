@@ -110,7 +110,7 @@ foreach ($tiers as $index => $tier) {
   </style>
 </head>
 <body>
-include("navbar.php");
+ <?php include("navbar.php");?>
 <<div class="benefit-container">
   <h1>🎁 Keistimewaan Penderma Darah</h1>
   <p class="intro">

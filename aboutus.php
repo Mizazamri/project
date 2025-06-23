@@ -125,8 +125,6 @@
 <body>
     <?php include "navbar.php"; ?>
 
-  <?php include("navbar.php") ?>
-
   <!-- Slideshow -->
   <div class="slideshow-container">
     <div class="mySlides fade">

@@ -65,7 +65,6 @@
 <?php include("navbar.php") ?>
 
 <div class="container">
-  <?php include "navbar.php"; ?>
   
   <h1>❓ Soalan Lazim (FAQ)</h1>
 

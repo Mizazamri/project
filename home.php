@@ -11,12 +11,12 @@
 
     <section class="intro">
     <h1>Intro</h1>
-    <p class="subtitle">Subtitle</p>
+    <p class="subtitle">Welcome to Bloodlink</p>
     <div class="cta-buttons">
         <a href="login.php"><button>🩸 Donate Now!</button></a>
         <button>📘 let's get to know more about blood donation!</button>
     </div>
-  </container>
+    </section>
 
     <section class="slideshow">
     <div class="slide" style="display:block;">
@@ -56,15 +56,15 @@
 </section>
 
     <article>
-        <header><h2>The Story of BloodLink 💗</h2></header>
+        <br><h2>The Story of BloodLink 💗</h2><br>
         <p>In Malaysia, blood donors receive a red book to track their donation history, but it can be easily lost or forgotten. This makes it difficult for donors to keep track of their eligibility and past contributions, which can lead to missed opportunities to donate.
-
             BloodLink is a digital platform created to replace the traditional red book by providing an easier way for donors to view their donation history, receive reminders, and check upcoming blood donation events online. The system helps users stay informed and engaged by offering convenient access to essential donation information.
-            
             Additionally, administrators can manage donor records, update donation histories and create or publish blood donation events by state. This makes the entire process more efficient and organized, helping both donors and organizers contribute to a more effective blood donation system.</p>
     </article>
    
-    <?php include ("footer.html") ?>
+    <div>
+        <?php include ("footer.html") ?>
+    </div>
 
     <div id="cookie-banner">
     <button id="close-cookie-banner" class="close-btn">&times;</button>

@@ -1,6 +1,9 @@
 <?php
+<<<<<<< Updated upstream
 //session start
 session_start();
+=======
+>>>>>>> Stashed changes
 include("connect.php");
 
 // Ensure the user is logged in
@@ -21,6 +24,7 @@ $stmt->close();
 // Get sorting option from query
 $sort = isset($_GET['sort']) && $_GET['sort'] === 'latest' ? 'DESC' : 'ASC';
 
+<<<<<<< Updated upstream
 // Fetch donation records for this donor only
 $sql = "SELECT * FROM donation_record WHERE donor_id = ? ORDER BY donation_date $sort";
 $stmt = $conn->prepare($sql);
@@ -28,6 +32,11 @@ $stmt->bind_param("i", $donor_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
+=======
+// Fetch donation records
+$sql = "SELECT * FROM donation_record ORDER BY date $sort";
+$result = $conn->query($sql);
+>>>>>>> Stashed changes
 $records = [];
 while ($row = $result->fetch_assoc()) {
     $records[] = $row;

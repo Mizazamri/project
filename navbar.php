@@ -40,7 +40,9 @@ if (session_status() === PHP_SESSION_NONE) {
           </div>
         </div>
       <?php else: ?>
+          <a href="login.php">
           <img src="image/login.png" width="30px" alt="Login">
+          </a>
         </a>
       <?php endif; ?>
     </nav>

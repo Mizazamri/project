@@ -2,24 +2,22 @@
 session_start();
 include("connect.php");
 
-//error message here
 $error = "";
 
-
-// Generate CSRF token if not set
+// CSRF token
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate CSRF token
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         $error = "Invalid CSRF token.";
     } else {
         $identifier = trim($_POST['identifier'] ?? '');
         $password = trim($_POST['password'] ?? '');
 
-        // Input validation
+        // Validate input
         if (empty($identifier) || empty($password)) {
             $error = "All fields are required.";
         } elseif (
@@ -29,18 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ) {
             $error = "Invalid email, phone number, or ID format.";
         } else {
-
-            // Check hospital_admin
-            $sqlAdmin = "SELECT * FROM hospital_admin WHERE email = ?";
-            $stmtAdmin = $conn->prepare($sqlAdmin);
+            // --- Try hospital_admin first ---
+            $stmtAdmin = $conn->prepare("SELECT * FROM hospital_admin WHERE email = ?");
             $stmtAdmin->bind_param("s", $identifier);
-
             if ($stmtAdmin->execute()) {
                 $resultAdmin = $stmtAdmin->get_result();
                 if ($resultAdmin->num_rows === 1) {
                     $admin = $resultAdmin->fetch_assoc();
                     if (password_verify($password, $admin['password'])) {
-                        $_SESSION['hospital_id'] = $admin['hospital_id']; // ✅ Add this
+                        $_SESSION['hospital_id'] = $admin['hospital_id'];
                         $_SESSION['email'] = $admin['email'];
                         $_SESSION['hospital_name'] = $admin['hospital_name'];
 
@@ -52,18 +47,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         header("Location: admin-home.php");
                         exit();
-                    }
-                    else {
+                    } else {
                         $error = "Invalid password.";
                     }
                 } else {
-                    // Check donor
-                    $sql = "SELECT * FROM donor WHERE email = ? OR mobile_number = ? OR id_card_number = ?";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("sss", $identifier, $identifier, $identifier);
-
-                    if ($stmt->execute()) {
-                        $result = $stmt->get_result();
+                    // --- Try donor login ---
+                    $stmtDonor = $conn->prepare("SELECT * FROM donor WHERE email = ? OR mobile_number = ? OR id_card_number = ?");
+                    $stmtDonor->bind_param("sss", $identifier, $identifier, $identifier);
+                    if ($stmtDonor->execute()) {
+                        $result = $stmtDonor->get_result();
                         if ($result->num_rows === 1) {
                             $user = $result->fetch_assoc();
                             if (password_verify($password, $user['password'])) {
@@ -84,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         } else {
                             $error = "Account not found.";
                         }
-                        $stmt->close();
+                        $stmtDonor->close();
                     } else {
                         $error = "Database error.";
                     }
@@ -94,8 +86,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $error = "Database error.";
             }
         }
-        $conn->close();
     }
+
+    $conn->close();
 }
 ?>
 
@@ -105,7 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Log In</title>
     <link rel="stylesheet" href="login.css">
-
 </head>
 <body>
 <div class="container">

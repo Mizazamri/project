@@ -1,5 +1,4 @@
 <?php
-include("navbar.php");
 include("connect.php");
 
 
@@ -111,8 +110,8 @@ foreach ($tiers as $index => $tier) {
   </style>
 </head>
 <body>
-
-<div class="benefit-container">
+ <?php include("navbar.php");?>
+<<div class="benefit-container">
   <h1>🎁 Keistimewaan Penderma Darah</h1>
   <p class="intro">
     Berdasarkan <strong>Surat Kementerian Kesihatan Bil. (23). KKM – 203/42</strong> bertarikh <strong>15 Julai 1996</strong>, penderma darah akan menerima rawatan percuma bergantung kepada bilangan pendermaan.
@@ -153,8 +152,35 @@ foreach ($tiers as $index => $tier) {
     </div>
   <?php endforeach; ?>
 
+  <hr style="margin: 40px 0;">
+
+  <h2 style="text-align: center; color: #d23241;">💪 Manfaat Kesihatan untuk Penderma Darah</h2>
+
+  <div class="tier" style="border-left-color: #4caf50;">
+    <h3>🩸 Merangsang Penghasilan Sel Darah Baharu</h3>
+    <p>✅ Selepas menderma, badan akan merangsang sumsum tulang untuk menghasilkan lebih banyak sel darah baharu, membantu memperbaharui darah dan kekal sihat.</p>
+  </div>
+
+  <div class="tier" style="border-left-color: #4caf50;">
+    <h3>❤️ Menyihatkan Jantung</h3>
+    <p>✅ Menderma darah secara berkala membantu mengurangkan zat besi berlebihan dalam darah yang boleh memberi tekanan pada jantung.</p>
+  </div>
+
+  <div class="tier" style="border-left-color: #4caf50;">
+    <h3>🔥 Membakar Kalori</h3>
+    <p>✅ Satu sesi pendermaan darah boleh membakar sehingga 650 kalori, sekaligus memberi kesan positif kepada pengurusan berat badan.</p>
+  </div>
+
+  <div class="tier" style="border-left-color: #4caf50;">
+    <h3>🧘 Meningkatkan Kesejahteraan Emosi</h3>
+    <p>✅ Kajian menunjukkan bahawa aktiviti membantu orang lain, termasuk menderma darah, boleh meningkatkan mood dan mengurangkan tekanan.</p>
+  </div>
+
   <p style="text-align: center; margin-top: 40px;">❤️ Terima kasih kerana menjadi penyelamat nyawa!</p>
 </div>
 
+
 </body>
+
+<?php include ("footer.html") ?>
 </html>

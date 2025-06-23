@@ -143,4 +143,6 @@ new Chart(stateCtx, {
 </script>
 
 </body>
+
+<?php include ("footer.html") ?>
 </html>

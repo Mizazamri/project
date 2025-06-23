@@ -141,30 +141,28 @@ function filterEvents() {
   const state = document.getElementById("state").value;
   const district = document.getElementById("district").value;
 
-  fetch(`?state=${state}&district=${district}`)
-    .then(res => res.json())
-    .then(data => {
-      const container = document.getElementById("events");
-      if (data.length === 0) {
-        container.innerHTML = "<p>No events found.</p>";
-        return;
-      }
-      container.innerHTML = data.map(e => `
-        <div class="event">
-          <img src="${e.image_path}" alt="${e.event_name}">
-          <div>
-            <h3>${e.event_name}</h3>
-            <p><strong>${e.event_date}</strong></p>
-            <p>${e.district}, ${e.state}</p>
-            <p>${e.event_details}</p>
-            ${isAdmin && hospitalId === parseInt(e.hospital_id) ? `
-              <a href="manage-event.php?action=edit&event_id=${e.event_id}">Edit</a> |
-              <a href="manage-event.php?action=delete&event_id=${e.event_id}" onclick="return confirm('Are you sure?')">Delete</a>
-            ` : ""}
-          </div>
-        </div>
-      `).join("");
-    });
+    fetch(`?state=${state}&district=${district}`)
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById("events");
+            if (data.length === 0) {
+                container.innerHTML = "<p>No events found.</p>";
+                return;
+            }
+            container.innerHTML = data.map(e => `
+                <div class="event">
+                    <img src="${e.image_path}" alt="${e.event_name}" style="max-width:100%;height:auto;">
+                    <h3>${e.event_name}</h3>
+                    <p><strong>Date:</strong> ${e.event_date} | ${e.starttime} - ${e.endtime}</p>
+                    <p><strong>Location:</strong> ${e.district}, ${e.state}</p>
+                    <p>${e.event_details}</p>
+                    ${isAdmin && hospitalId === parseInt(e.hospital_id) ? `
+                        <a href="manage-event.php?action=edit&event_id=${e.event_id}">Edit</a> |
+                        <a href="manage-event.php?action=delete&event_id=${e.event_id}" onclick="return confirm('Are you sure?')">Delete</a>
+                    ` : ""}
+                </div>
+            `).join("");
+        });
 }
 
 window.onload = () => {
@@ -174,4 +172,6 @@ window.onload = () => {
 </script>
 
 </body>
+
+<?php include ("footer.html") ?>
 </html>

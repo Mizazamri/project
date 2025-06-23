@@ -1,3 +1,9 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +20,7 @@
     <p class="subtitle">Welcome to Bloodlink</p>
     <div class="cta-buttons">
         <a href="login.php"><button>🩸 Donate Now!</button></a>
-        <button>📘 let's get to know more about blood donation!</button>
+        <a href="findoutmore.php"><button>📘 Let's get to know more about blood donation!</button></a>
     </div>
     </section>
 

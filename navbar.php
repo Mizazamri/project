@@ -16,7 +16,9 @@ if (session_status() === PHP_SESSION_NONE) {
 <body>
   <header>
     <div class="logo-container">
-      <img src="image/logo.png" alt="logo" />
+      <a href="home.php">
+        <img id="imgformat" class="imageCenter" src="Image/logo.png" alt="logo">
+      </a>
       <span>BloodLink</span>
     </div>
 
@@ -40,10 +42,8 @@ if (session_status() === PHP_SESSION_NONE) {
           </div>
         </div>
       <?php else: ?>
-          <a href="login.php">
-          <img src="image/login.png" width="30px" alt="Login">
-          </a>
-        </a>
+          <a href="login.php" class="icon-link">
+          <img src="image/login.png" width="30px" alt="Login"></a>
       <?php endif; ?>
     </nav>
 

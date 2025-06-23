@@ -122,10 +122,6 @@
 
   <div id="support" class="faq-content">
     <div class="faq-item">
-      <h3>Saya lupa kata laluan. Apa perlu saya buat?</h3>
-      <p>Klik "Lupa Kata Laluan" di halaman log masuk.</p>
-    </div>
-    <div class="faq-item">
       <h3>Bagaimana saya tahu ada kempen darah berhampiran?</h3>
       <p>Semak di halaman "Event", atau ikuti kami di Instagram.</p>
     </div>

@@ -18,6 +18,7 @@ if (isset($_GET['state']) || isset($_GET['district'])) {
             LEFT JOIN event_management em ON e.event_id = em.event_id
             WHERE 1=1";
 
+
     $params = [];
     $types = "";
 
@@ -31,6 +32,8 @@ if (isset($_GET['state']) || isset($_GET['district'])) {
         $params[] = $district;
         $types .= "s";
     }
+
+    $sql .= " ORDER BY e.event_date DESC, e.starttime DESC";
 
     $stmt = $conn->prepare($sql);
     if (!empty($params)) {

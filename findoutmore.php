@@ -17,71 +17,75 @@
 </head>
 <body>
 
-<h1>🩸 Ketahui Lebih Lanjut Tentang Pendermaan Darah</h1>
+<h1>🩸 Learn More About Blood Donation</h1>
 
-<button class="accordion">✅ Syarat Kelayakan</button>
+<!-- Eligibility Requirements -->
+<button class="accordion">✅ Eligibility Criteria</button>
 <div class="panel">
   <ul>
-    <li>Sihat tubuh badan</li>
-    <li>Berumur 17 - 70 tahun (penderma baru: 17-60, tetap: 17-70)</li>
-    <li>Berat badan 45kg ke atas</li>
-    <li>Tidur minimum 5 jam</li>
-    <li>Tiada masalah kesihatan atau ubat-ubatan</li>
-    <li>Makan dalam masa 4 jam sebelum menderma</li>
-    <li>Tidak terlibat dalam kegiatan berisiko tinggi seperti:
+    <li>In good health</li>
+    <li>Aged 17 - 70 years (new donors: 17–60, regular donors: 17–70)</li>
+    <li>Minimum weight of 45kg</li>
+    <li>At least 5 hours of sleep</li>
+    <li>No health issues or current medications</li>
+    <li>Have eaten within the last 4 hours</li>
+    <li>Not involved in high-risk activities such as:
       <ul>
-        <li>Hubungan sejenis, biseksual, pekerja seks, tukar pasangan</li>
-        <li>Mengambil dadah secara suntikan</li>
+        <li>Same-sex relations, bisexuality, sex work, partner swapping</li>
+        <li>Injecting drugs</li>
       </ul>
     </li>
-    <li>Pendermaan terakhir sekurang-kurangnya 3 bulan lepas</li>
-    <li>Tidak mengandung / menyusu / datang haid (hari ke-4 ke atas sahaja boleh)</li>
-    <li>Bawa dokumen asal (IC/pasport/lesen)</li>
+    <li>Last donation was at least 3 months ago</li>
+    <li>Not pregnant / breastfeeding / menstruating (only after day 4 of period)</li>
+    <li>Bring original documents (IC/passport/driver’s license)</li>
   </ul>
 </div>
 
-<button class="accordion">🕒 Sebelum Pendermaan</button>
+<!-- Before Donation -->
+<button class="accordion">🕒 Before Donation</button>
 <div class="panel">
   <ul>
-    <li>Minum air secukupnya</li>
-    <li>Tidur sekurang-kurangnya 5 jam</li>
-    <li>Layari laman web Pusat Darah Negara untuk kriteria lanjut</li>
+    <li>Drink plenty of water</li>
+    <li>Get at least 5 hours of sleep</li>
+    <li>Visit the National Blood Centre website for full eligibility guidelines</li>
   </ul>
 </div>
 
-<button class="accordion">💉 Semasa Pendermaan</button>
+<!-- During Donation -->
+<button class="accordion">💉 During Donation</button>
 <div class="panel">
   <ul>
-    <li>Pastikan sihat dan makan dalam 4 jam terakhir</li>
-    <li>Pakai pakaian selesa dan boleh gulung lengan</li>
-    <li>Bawa kad pengenalan atau lesen</li>
+    <li>Ensure you feel well and have eaten within the last 4 hours</li>
+    <li>Wear comfortable clothing with sleeves that can be rolled up</li>
+    <li>Bring your ID or driver's license</li>
   </ul>
 </div>
 
-<button class="accordion">❤️ Selepas Pendermaan</button>
+<!-- After Donation -->
+<button class="accordion">❤️ After Donation</button>
 <div class="panel">
   <ul>
-    <li>Rehat 10 minit dan tekan tempat cucuk jarum</li>
-    <li>Makan/minum yang disediakan</li>
-    <li>Minum air lebih</li>
-    <li>Elak aktiviti berat selama 6–8 jam</li>
-    <li><b>Lebam atau bengkak?</b>
+    <li>Rest for 10 minutes and apply pressure on the needle site</li>
+    <li>Eat/drink the refreshments provided</li>
+    <li>Drink more fluids</li>
+    <li>Avoid heavy activities for 6–8 hours</li>
+    <li><b>Bruising or swelling?</b>
       <ul>
-        <li>Letak ais selama 10 minit</li>
-        <li>Jangan urut kawasan lebam</li>
-        <li>Jika sakit, hubungi Pusat Darah Negara segera</li>
+        <li>Apply ice for 10 minutes</li>
+        <li>Do not massage the bruised area</li>
+        <li>If in pain, contact the National Blood Centre immediately</li>
       </ul>
     </li>
-    <li><b>Reaksi selepas menderma?</b> Gunakan kad CUE dan hubungi nombor kecemasan.</li>
+    <li><b>Reaction after donating?</b> Use the CUE card and call the emergency number.</li>
   </ul>
   <div class="callout emergency">
-    📞 Hubungi Pusat Darah Negara dalam 24 jam jika anda:
+    📞 Contact the National Blood Centre within 24 hours if you:
     <ul>
-      <li>Merasa darah anda tidak selamat</li>
-      <li>Mengalami pening berpanjangan, kebas, bengkak</li>
+      <li>Feel your blood may not be safe for donation</li>
+      <li>Experience prolonged dizziness, numbness, or swelling</li>
     </ul>
     <b>Hotline: 03-26132688 </b>
-    <img src="Hotline1.jpeg"
+    <img src="Hotline1.jpeg">
   </div>
 </div>
 

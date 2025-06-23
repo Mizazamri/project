@@ -36,42 +36,7 @@ while ($row = $result3->fetch_assoc()) {
     <title>BloodLink Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; }
-        header { background-color: #ff4d4d; color: white; text-align: center; padding: 20px; }
-        nav { background: #333; text-align: center; padding: 12px 0; }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-        nav a:hover {
-            background-color: #ff9999;
-        }
-        main {
-            padding: 30px;
-            text-align: center;
-            max-width: 1000px;
-            margin: auto;
-        }
-        h2, h3 { color: #333; }
-        canvas { margin: 30px 0; max-width: 100%; height: auto; }
-        .logout {
-            float: right;
-            margin-right: 20px;
-            background: #cc0000;
-        }
-        .nav-container {
-            max-width: 1000px;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-    </style>
+    <link rel="stylesheet" href="admin-home.css" type="text/style">
 </head>
 <body>
 

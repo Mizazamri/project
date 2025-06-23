@@ -112,13 +112,13 @@ foreach ($tiers as $index => $tier) {
 <body>
  <?php include("navbar.php");?>
 <<div class="benefit-container">
-  <h1>🎁 Keistimewaan Penderma Darah</h1>
+  <h1>🎁 Blood Donor Privilege</h1>
   <p class="intro">
-    Berdasarkan <strong>Surat Kementerian Kesihatan Bil. (23). KKM – 203/42</strong> bertarikh <strong>15 Julai 1996</strong>, penderma darah akan menerima rawatan percuma bergantung kepada bilangan pendermaan.
+    Based <strong>Ministry of Health Letter No. (23). MOH – 203/42</strong> dated <strong>15 July 1996</strong>, blood donors are entitled to free treatment depending on the number of donations.
   </p>
 
   <div class="progress-wrapper">
-    <h2>👤 Jumlah Pendermaan Anda: <?php echo $donationCount; ?></h2>
+    <h2>👤 Your Total Donations: <?php echo $donationCount; ?></h2>
     <div class="progress-bar">
       <?php foreach ($tiers as $index => $tier): ?>
         <div class="tier-segment <?= ($index === $activeTier) ? 'active' : '' ?>"
@@ -131,15 +131,15 @@ foreach ($tiers as $index => $tier) {
 
   <?php
   $benefits = [
-    "1 Kali" => ["Rawatan pesakit luar & perubatan (tidak termasuk X-ray/pembedahan)", "Wad kelas dua untuk 4 bulan"],
-    "2-5 Kali" => ["Pelalian Hepatitis B percuma", "Rawatan pesakit luar & wad kelas dua untuk 4 bulan"],
-    "6-10 Kali" => ["Rawatan pesakit luar & wad kelas dua untuk 6 bulan"],
-    "11-15 Kali" => ["Rawatan pesakit luar untuk 2 tahun", "Rawatan perubatan & wad kelas dua untuk 1 tahun"],
-    "16-20 Kali" => ["Rawatan pesakit luar & wad kelas dua untuk 2 tahun"],
-    "21-30 Kali" => ["Rawatan pesakit luar & wad kelas dua untuk 3 tahun"],
-    "31-40 Kali" => ["Rawatan pesakit luar & wad kelas satu untuk 4 tahun"],
-    "41-50 Kali" => ["Rawatan pesakit luar & wad kelas satu untuk 6 tahun"],
-    "50+ Kali" => ["Rawatan pesakit luar & wad kelas satu untuk 10 tahun"]
+    "1 Donation" => ["Rawatan pesakit luar & perubatan (tidak termasuk X-ray/pembedahan)", "Second-class ward for 4 months"],
+    "2-5 Donation" => ["Free Hepatitis B vaccination", "Outpatient treatment & second-class ward for 4 months"],
+    "6-10 Donation" => ["Outpatient treatment & second-class ward for 6 months"],
+    "11-15 Donation" => ["Outpatient treatment for 2 years ", "Medical treatment & second-class ward for 1 year"],
+    "16-20 Donation" => ["Outpatient treatment & second-class ward for 2 years"],
+    "21-30 Donation" => ["Outpatient treatment & second-class ward for 3 years"],
+    "31-40 Donation" => ["Outpatient treatment & second-class ward for 4 years"],
+    "41-50 Donation" => [" Outpatient treatment & second-class ward for 6 years"],
+    "50+ Donation" => [" Outpatient treatment & second-class ward for 10 years"]
   ];
   ?>
 
@@ -157,23 +157,23 @@ foreach ($tiers as $index => $tier) {
   <h2 style="text-align: center; color: #d23241;">💪 Manfaat Kesihatan untuk Penderma Darah</h2>
 
   <div class="tier" style="border-left-color: #4caf50;">
-    <h3>🩸 Merangsang Penghasilan Sel Darah Baharu</h3>
-    <p>✅ Selepas menderma, badan akan merangsang sumsum tulang untuk menghasilkan lebih banyak sel darah baharu, membantu memperbaharui darah dan kekal sihat.</p>
+    <h3>🩸Stimulates Production of New Blood Cells</h3>
+    <p>✅ After donating, the body stimulates bone marrow to produce more new blood cells, helping to renew blood and stay healthy.</p>
   </div>
 
   <div class="tier" style="border-left-color: #4caf50;">
-    <h3>❤️ Menyihatkan Jantung</h3>
-    <p>✅ Menderma darah secara berkala membantu mengurangkan zat besi berlebihan dalam darah yang boleh memberi tekanan pada jantung.</p>
+    <h3>❤️ Improves Heart Health</h3>
+    <p>✅ Regular blood donation helps reduce excess iron in the blood, which can put pressure on the heart.</p>
   </div>
 
   <div class="tier" style="border-left-color: #4caf50;">
-    <h3>🔥 Membakar Kalori</h3>
-    <p>✅ Satu sesi pendermaan darah boleh membakar sehingga 650 kalori, sekaligus memberi kesan positif kepada pengurusan berat badan.</p>
+    <h3>🔥 Burns Calories</h3>
+    <p>✅ A single donation session can burn up to 650 calories, which positively contributes to weight management.</p>
   </div>
 
   <div class="tier" style="border-left-color: #4caf50;">
-    <h3>🧘 Meningkatkan Kesejahteraan Emosi</h3>
-    <p>✅ Kajian menunjukkan bahawa aktiviti membantu orang lain, termasuk menderma darah, boleh meningkatkan mood dan mengurangkan tekanan.</p>
+    <h3>🧘 Enhances Emotional Well-being</h3>
+    <p>✅ Studies show that helping others — including donating blood — can improve mood and reduce stress.</p>
   </div>
 
   <p style="text-align: center; margin-top: 40px;">❤️ Terima kasih kerana menjadi penyelamat nyawa!</p>

@@ -62,6 +62,8 @@
 </head>
 <body>
 <div class="container">
+  <?php include "navbar.php"; ?>
+  
   <h1>❓ Soalan Lazim (FAQ)</h1>
 
   <div class="tabs">

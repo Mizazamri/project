@@ -122,6 +122,7 @@ img
 </style>
 </head> 
 <body>
+    <?php include "navbar.php"; ?>
 
     <div class="slideshow-container">
 

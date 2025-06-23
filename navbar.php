@@ -21,10 +21,10 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
 
     <nav id="main-nav">
-      <a href="#">Home</a>
-      <a href="#">Event</a>
-      <a href="#">FAQ</a>
-      <a href="#">About Us</a>
+      <a href="home.php">Home</a>
+      <a href="event.php">Event</a>
+      <a href="faq.php">FAQ</a>
+      <a href="aboutus.php">About Us</a>
 
       <?php if (isset($_SESSION['email'])): ?>
         <?php

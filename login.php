@@ -105,33 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Log In</title>
     <link rel="stylesheet" href="login.css">
-    <style>
-    
-    .popup {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    z-index: 1000;
-    max-width: 90%;
-    text-align: center;
-    }
 
-    .popup .close-btn {
-        float: right;
-        margin-left: 15px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    </style>
 </head>
 <body>
 <div class="container">

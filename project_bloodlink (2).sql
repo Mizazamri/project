@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307:3307
--- Generation Time: Jun 22, 2025 at 11:50 AM
+-- Generation Time: Jun 23, 2025 at 04:22 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -337,6 +337,19 @@ INSERT INTO `hospital_admin` (`hospital_id`, `hospital_name`, `email`, `password
 (71, 'Hospital Bachok', 'hbachok@pdn.gov.my', '$2y$10$v110zYWXwcziOIs7d2Y1TuWDa3RQAufkzWlgH4bP02O...'),
 (72, 'Hospital Sultan Ismail Petra', 'hsip@pdn.gov.my', '$2y$10$v110zYWXwcziOIs7d2Y1TuWDa3RQAufkzWlgH4bP02O...');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `remember_tokens`
+--
+
+CREATE TABLE `remember_tokens` (
+  `id` int(11) NOT NULL,
+  `user_email` varchar(255) DEFAULT NULL,
+  `token` varchar(64) DEFAULT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -378,6 +391,12 @@ ALTER TABLE `hospital_admin`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `remember_tokens`
+--
+ALTER TABLE `remember_tokens`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -392,6 +411,12 @@ ALTER TABLE `donor`
 --
 ALTER TABLE `hospital_admin`
   MODIFY `hospital_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT for table `remember_tokens`
+--
+ALTER TABLE `remember_tokens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

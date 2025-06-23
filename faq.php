@@ -60,7 +60,10 @@
     }
   </style>
 </head>
+
 <body>
+<?php include("navbar.php") ?>
+
 <div class="container">
   <h1>❓ Soalan Lazim (FAQ)</h1>
 
@@ -141,4 +144,6 @@ function showTab(tabId) {
 }
 </script>
 </body>
+
+<?php include ("footer.html") ?>
 </html>

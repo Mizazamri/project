@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-column h3 {
+      color: #f06543;
+      margin-bottom: 10px;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      color: #ccc;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin-right: 10px;
+      display: inline-block;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .social-icons a img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-column {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>TENTANG KAMI</h3>
+        <p>
+          Pusat Darah Negara sedia berkhidmat kepada masyarakat dalam menyediakan darah yang mencukupi dan selamat serta menjadi pusat rujukan yang cemerlang di bidang Transfusi Perubatan.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>LOKASI KAMI</h3>
+        <p>Pusat Darah Negara<br>Jalan Tun Razak, 50400, Kuala Lumpur</p>
+        <p>Tel: 03 26132688 | Faks: 03 2698 0362</p>
+        <p>Email: <a href="mailto:pdn@moh.gov.my">pdn@moh.gov.my</a></p>
+        <p>Web: <a href="https://www.pdn.gov.my" target="_blank">www.pdn.gov.my</a></p>
+        <p><a href="https://www.google.com/maps/place/Pusat+Darah+Negara" target="_blank">Find on Google Map</a></p>
+      </div>
+
+      <div class="footer-column">
+        <h3>IKUTI KAMI</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/PusatDarahNegaraKementerianKesihatanMalaysia/" target="_blank">
+            <img src="image/bFacebook.jpg" alt="bFacebook" />
+          </a>
+          <a href="https://www.instagram.com/PusatDarahNegara/" target="_blank">
+            <img src="image/bInstagram.jpg" alt="Instagram" />
+          </a>
+          <a href="https://x.com/PDNKKM" target="_blank">
+            <img src="image/btwitter.jpg" alt="Twitter" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 Pusat Darah Negara. Hak cipta terpelihara.
+    </div>BloodLink. All rights reserved.
+    </div>
+    
+</footer>
+</html>

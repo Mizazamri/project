@@ -9,7 +9,7 @@
 <body>
     <?php include("navbar.php"); ?>
 
-    <section class="intro">
+    <container class="intro">
     <h1>Intro</h1>
     <p class="subtitle">Subtitle</p>
     <div class="cta-buttons">
@@ -17,7 +17,7 @@
         
       <button>📘 let's get to know more about blood donation!</button>
     </div>
-  </section>
+  </container>
 
     <section class="slideshow">
     <div class="slide" style="display:block;">
@@ -40,17 +40,17 @@
         <div class="text-overlay">
             <h2>Are you eligible?</h2>
             <p>Find out more.</p>
-            <a href="findoutmore.php" class="btn-slide">Sign In</a>
+            <a href="findoutmore.php" class="btn-slide">See More</a>
         </div>
-        <img src="image/b2.jpg" alt="Slide 2">
+        <img src="image/b6.jpg" alt="Slide 3">
     </div>
     <div class="slide">
         <div class="text-overlay">
             <h2>Have donated?</h2>
             <p>Look at your benefit here.</p>
-            <a href="benefit.php" class="btn-slide">Sign In</a>
+            <a href="benefit.php" class="btn-slide">Read More</a>
         </div>
-        <img src="image/b2.jpg" alt="Slide 2">
+        <img src="image/Benefits-of-blood-donation.png" alt="Slide 4">
     </div>
     <button class="prev" onclick="plusSlides(-1)">❮</button>
     <button class="next" onclick="plusSlides(1)">❯</button>
@@ -64,17 +64,8 @@
             
             Additionally, administrators can manage donor records, update donation histories and create or publish blood donation events by state. This makes the entire process more efficient and organized, helping both donors and organizers contribute to a more effective blood donation system.</p>
     </article>
-    <div class="social-icons">
-        <a href="https://www.figma.com/design/19HkocX3ODbiYf8dz16Gpx/PROJECT-SYSTEM-DEV?node-id=0-1&p=f&t=6B9v0hkXyywTloMS-0" target="_blank">
-            <img src="image/figma.avif" alt="Figma" width="80">
-        </a>
-        <a href="" target="_blank">
-            <img src="image/insta1.png" alt="Email" width="80">
-        </a>
-        <a href="" target="_blank">
-            <img src="image/youtube1.png" alt="Youtube" width="80">
-        </a>
-    </div>
+   
+    <?php include ("footer.html") ?>
 
     <div id="cookie-banner">
     <button id="close-cookie-banner" class="close-btn">&times;</button>

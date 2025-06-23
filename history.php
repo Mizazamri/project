@@ -157,4 +157,6 @@ while ($row = $result->fetch_assoc()) {
 <button onclick="printRecords()">Print Records</button>
 
 </body>
+
+<?php include ("footer.html") ?>
 </html>

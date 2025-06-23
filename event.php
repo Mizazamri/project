@@ -151,19 +151,20 @@ function filterEvents() {
                 return;
             }
             container.innerHTML = data.map(e => `
-                <div class="event">
-                    <img src="${e.image_path}" alt="${e.event_name}" style="max-width:100%;height:auto;">
-                    <h3>${e.event_name}</h3>
-                    <p><strong>Date:</strong> ${e.event_date} | ${e.starttime} - ${e.endtime}</p>
-                    <p><strong>Location:</strong> ${e.district}, ${e.state}</p>
-                    <p>${e.event_details}</p>
-                    ${isAdmin && hospitalId === parseInt(e.hospital_id) ? `
-                        <a href="manage-event.php?action=edit&event_id=${e.event_id}">Edit</a> |
-                        <a href="manage-event.php?action=delete&event_id=${e.event_id}" onclick="return confirm('Are you sure?')">Delete</a>
-                    ` : ""}
-                </div>
-            `).join("");
-        });
+            <div class="event">
+                <img src="${e.image_path}" alt="${e.event_name}" style="max-width:100%;height:auto;">
+                <p style="color: grey; font-size: 13px;">Event ID: ${e.event_id}</p>
+                <h3>${e.event_name}</h3>
+                <p><strong>Date:</strong> ${e.event_date} | ${e.starttime} - ${e.endtime}</p>
+                <p><strong>Location:</strong> ${e.district}, ${e.state}</p>
+                <p>${e.event_details}</p>
+                ${isAdmin && hospitalId === parseInt(e.hospital_id) ? `
+                    <a href="manage-event.php?action=edit&event_id=${e.event_id}">Edit</a> |
+                    <a href="manage-event.php?action=delete&event_id=${e.event_id}" onclick="return confirm('Are you sure?')">Delete</a>
+                ` : ""}
+            </div>
+        `).join("");
+                });
 }
 
 window.onload = () => {
@@ -173,4 +174,6 @@ window.onload = () => {
 </script>
 
 </body>
+
+<?php include ("footer.html") ?>
 </html>

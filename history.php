@@ -6,7 +6,7 @@ include("connect.php");
 $sort = isset($_GET['sort']) && $_GET['sort'] === 'latest' ? 'DESC' : 'ASC';
 
 // Fetch donation records
-$sql = "SELECT * FROM donations ORDER BY date $sort";
+$sql = "SELECT * FROM donation_record ORDER BY donation_date $sort";
 $result = $conn->query($sql);
 $records = [];
 while ($row = $result->fetch_assoc()) {
@@ -139,13 +139,13 @@ while ($row = $result->fetch_assoc()) {
     <tbody>
       <?php foreach ($records as $record): ?>
         <tr>
-          <td><?= date("j F Y", strtotime($record['date'])) ?></td>
-          <td><?= htmlspecialchars($record['serial_number']) ?></td>
-          <td><?= htmlspecialchars($record['amount']) ?></td>
+          <td><?= date("j F Y", strtotime($record['donation_date'])) ?></td>
+          <td><?= htmlspecialchars($record['blood_serial_num']) ?></td>
+          <td><?= htmlspecialchars($record['volume_donation']) ?></td>
           <td><?= htmlspecialchars($record['weight']) ?></td>
           <td><?= htmlspecialchars($record['height']) ?></td>
           <td><?= htmlspecialchars($record['hemoglobin']) ?></td>
-          <td><?= htmlspecialchars($record['location']) ?></td>
+          <td><?= htmlspecialchars($record['state']) ?></td>
         </tr>
       <?php endforeach; ?>
     </tbody>

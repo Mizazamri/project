@@ -123,6 +123,7 @@ while ($row = $result->fetch_assoc()) {
       window.location.href = `history.php?sort=${sortOrder}`;
     }
 
+    //basically macam screenshot
     function printRecords() {
       if (confirm("Do you want to print this donation history?")) {
         window.print();

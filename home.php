@@ -9,13 +9,12 @@
 <body>
     <?php include("navbar.php"); ?>
 
-    <container class="intro">
+    <section class="intro">
     <h1>Intro</h1>
     <p class="subtitle">Subtitle</p>
     <div class="cta-buttons">
-      <a href="login.php"><button>🩸 Donate Now!</button></a>
-        
-      <button>📘 let's get to know more about blood donation!</button>
+        <a href="login.php"><button>🩸 Donate Now!</button></a>
+        <button>📘 let's get to know more about blood donation!</button>
     </div>
   </container>
 

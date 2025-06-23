@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.filters label {
+    display: none;
+}
+
+.filters select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-width: 180px;
+    background-color: white;
+    font-size: 14px;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.event img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    background-color: #eee;
+}
+
+.event h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.event p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555;
+}
+
+.event a {
+    font-size: 13px;
+    color: #d32f2f;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.event a:hover {
+    text-decoration: underline;
+}

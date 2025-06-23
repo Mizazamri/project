@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Manage Event</title>
-    <link rel="stylesheet" href="manage-event.css">
+    <link rel="stylesheet" href="manage-event.css" type="text/css" >
 </head>
 <body>
 <?php include("navbar.php"); ?>

@@ -19,7 +19,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <h1>Intro</h1>
     <p class="subtitle">Welcome to Bloodlink</p>
     <div class="cta-buttons">
-        <a href="login.php"><button>🩸 Donate Now!</button></a>
+        <a href="event.php"><button>🩸 Donate Now!</button></a>
         <a href="findoutmore.php"><button>📘 Let's get to know more about blood donation!</button></a>
     </div>
     </section>

@@ -36,25 +36,11 @@ while ($row = $result3->fetch_assoc()) {
     <title>BloodLink Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <link rel="stylesheet" href="admin-home.css" type="text/style">
+    <link rel="stylesheet" href="admin.css" type="text/css">
+    
 </head>
 <body>
-
-<header>
-    <h1>BloodLink Admin Dashboard</h1>
-</header>
-
-<nav>
-    <div class="nav-container">
-        <a href="admin_home.php">Home</a>
-        <a href="add-donation.php">Add Donation</a>
-        <a href="add-event.php">Add Event</a>
-        <a href="#" onclick="alert('Coming Soon!')">About Us</a>
-        <a href="#" onclick="alert('Coming Soon!')">Hospital</a>
-        <a href="logout.php" class="logout">Logout</a>
-    </div>
-</nav>
-
+<?php include ("admin-navbar.php") ?>
 <main>
     <h2>Welcome, <?= htmlspecialchars($_SESSION['hospital_name']) ?></h2>
     <p>This is your admin dashboard. Use the menu above to manage donations and events.</p>
@@ -62,8 +48,6 @@ while ($row = $result3->fetch_assoc()) {
     <h3>Donations by Blood Type</h3>
     <canvas id="bloodChart"></canvas>
 
-    <h3>Donations by Hospital</h3>
-    <canvas id="hospitalChart"></canvas>
 
     <h3>Donations by State</h3>
     <canvas id="stateChart"></canvas>

@@ -139,9 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="new-account">
                 <p>Don't have an account? <a href="signup.php">Register</a></p>
             </div>
-            <div class="psw-center">
-                <a href="forget.html">Forgot Password?</a>
-            </div>
+           
         </div>
     </div>
 </div>

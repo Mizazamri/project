@@ -61,145 +61,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Add Donation - Admin Page</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      background: #fff;
-    }
+  <link rel="stylesheet" href="add-donation.css" type="text/css">
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: #fff;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-    }
-
-    header nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #000;
-    }
-
-    .active {
-      color: #fff;
-      background: #e63946;
-      padding: 0.3rem 0.8rem;
-      border-radius: 5px;
-    }
-
-    main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h2 {
-      margin-bottom: 1rem;
-    }
-
-    form {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .form-grid {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    input, select {
-      width: 100%;
-      padding: 0.7rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .button-group {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: flex-end;
-    }
-
-    button {
-      padding: 0.7rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .cancel {
-      background: transparent;
-      border: 1px solid #e63946;
-      color: #e63946;
-    }
-
-    .save {
-      background: #e63946;
-      color: white;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      padding-top: 100px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.4);
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: auto;
-      padding: 2rem;
-      border: 1px solid #ccc;
-      width: 90%;
-      max-width: 500px;
-      border-radius: 8px;
-      text-align: center;
-      position: relative;
-    }
-
-    .close-btn {
-      position: absolute;
-      right: 1rem;
-      top: 1rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #e63946;
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
 </head>
 <body>
-
-<header>
-  <div><strong>🩸BloodLink</strong></div>
-  <nav>
-    <a href="admin-home.php">Home</a>
-    <a class="active" href="add-donation.php">Add Donation</a>
-    <a href="add-event.php">Add Event</a>
-    <a href="">About Us</a>
-  </nav>
-</header>
-
+<?php include ("admin-navbar.php") ?>
 <main>
   <h2>Add Donation</h2>
 
@@ -241,7 +107,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   </form>
 </main>
 
-<!-- Modal -->
 <div id="confirmationModal" class="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeModal()">&times;</span>

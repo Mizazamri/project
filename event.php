@@ -18,7 +18,6 @@ if (isset($_GET['state']) || isset($_GET['district'])) {
             LEFT JOIN event_management em ON e.event_id = em.event_id
             WHERE 1=1";
 
-
     $params = [];
     $types = "";
 
@@ -62,13 +61,17 @@ if (isset($_GET['state']) || isset($_GET['district'])) {
 </head>
 
 <body>
-    <?php include "navbar.php"; ?>
-    
-    <div class="filters">
-        <h2>Choose your state:</h2>
-        <select id="state" onchange="updateDistricts()">
-    </div>
+  <?php
+    if ($is_admin) {
+        include "admin-navbar.php";
+    } else {
+        include "navbar.php";
+    }
+  ?>
 
+  <div class="filters">
+    <h2>Choose your state:</h2>
+    <select id="state" onchange="updateDistricts()">
       <option value="">STATES</option>
       <option value="Johor">Johor</option>
       <option value="Kedah">Kedah</option>
@@ -94,87 +97,85 @@ if (isset($_GET['state']) || isset($_GET['district'])) {
   </div>
 
   <div id="events" class="event-container"></div>
-</main>
 
-<script>
-const isAdmin = <?= $is_admin ? 'true' : 'false' ?>;
-const hospitalId = <?= $hospital_id ?? 'null' ?>;
+  <script>
+    const isAdmin = <?= $is_admin ? 'true' : 'false' ?>;
+    const hospitalId = <?= $hospital_id ?? 'null' ?>;
 
-const stateDistricts = {
-  "Johor": ["Batu Pahat", "Johor Bahru", "Kluang","Kota Tinggi","Mersing","Muar","Pontian","Segamat"],
-  "Kedah": ["Kota Setar","Kubang Pasu","Padang Terap","Langkawi","Kuala Muda", "Yan", "Sik","Baling","Kulim","Bandar Baharu","Pendang","Pokok Sena"],
-  "Kelantan": ["Bachok","Kota Bharu","Machang", "Pasir Mas","Pasir Puteh","Tanah Merah" ,"Tumpat","Gua Musang","Kuala Krai","Jeli"],
-  "Melaka": ["Melaka Tengah","Jasin","Alor Gajah"],
-  "Negeri Sembilan": ["Jelebu","Kuala Pilah","Port Dickson","Rembau","Seremban", "Tampin", "Jempol"],
-  "Pahang": ["Bentong","Cameron Highlands","Jerantut","Kuantan","Lipis","Pekan","Raub", "Temerloh","Rompin","Maran","Bera"],
-  "Penang": ["Seberang Perai", "George Town"],
-  "Perak": ["Batang Padang","Manjung","Kinta","Kerian","Kuala Kangsar","Larut & Matang","Hilir Perak","Hulu Perak","Selama", "Perak Tengah", "Kampar"],
-  "Sabah": ["Kota Kinabalu","Papar","Kota Belud","Tuaran","Kudat","Ranau", "Sandakan","Labuk & Sugut","Kinabatangan", "Tawau","Lahad Datu","Semporna","Keningau","Tambunan","Pensiangan","Tenom","Beaufort","Kuala Penyu","Sipitang","Penampang","Kota Marudu","Pitas","Kunak","Tongod","Putatan"],
-  "Sarawak": ["Kuching", "Sri Aman", "Sibu","Miri","Limbang","Sarikei","Kapit","Samarahan","Bintulu","Mukah","Betong"],
-  "Selangor": ["Klang","Kuala Langat","Kuala Selangor","Sabak Bernam","Ulu Langat","Ulu Selangor", "Petaling", "Gombak","Sepang"],
-  "Terengganu": ["Besut","Dungun","Kemaman","Kuala Terengganu", "Hulu Terengganu", "Marang","Setiu"],
-  "Wilayah Persekutuan Kuala Lumpur": [],
-  "Wilayah Persekutuan Labuan": [],
-  "Wilayah Persekutuan Putrajaya": ["Putrajaya"],
-  "Perlis": []
-};
+    const stateDistricts = {
+      "Johor": ["Batu Pahat", "Johor Bahru", "Kluang","Kota Tinggi","Mersing","Muar","Pontian","Segamat"],
+      "Kedah": ["Kota Setar","Kubang Pasu","Padang Terap","Langkawi","Kuala Muda", "Yan", "Sik","Baling","Kulim","Bandar Baharu","Pendang","Pokok Sena"],
+      "Kelantan": ["Bachok","Kota Bharu","Machang", "Pasir Mas","Pasir Puteh","Tanah Merah" ,"Tumpat","Gua Musang","Kuala Krai","Jeli"],
+      "Melaka": ["Melaka Tengah","Jasin","Alor Gajah"],
+      "Negeri Sembilan": ["Jelebu","Kuala Pilah","Port Dickson","Rembau","Seremban", "Tampin", "Jempol"],
+      "Pahang": ["Bentong","Cameron Highlands","Jerantut","Kuantan","Lipis","Pekan","Raub", "Temerloh","Rompin","Maran","Bera"],
+      "Penang": ["Seberang Perai", "George Town"],
+      "Perak": ["Batang Padang","Manjung","Kinta","Kerian","Kuala Kangsar","Larut & Matang","Hilir Perak","Hulu Perak","Selama", "Perak Tengah", "Kampar"],
+      "Sabah": ["Kota Kinabalu","Papar","Kota Belud","Tuaran","Kudat","Ranau", "Sandakan","Labuk & Sugut","Kinabatangan", "Tawau","Lahad Datu","Semporna","Keningau","Tambunan","Pensiangan","Tenom","Beaufort","Kuala Penyu","Sipitang","Penampang","Kota Marudu","Pitas","Kunak","Tongod","Putatan"],
+      "Sarawak": ["Kuching", "Sri Aman", "Sibu","Miri","Limbang","Sarikei","Kapit","Samarahan","Bintulu","Mukah","Betong"],
+      "Selangor": ["Klang","Kuala Langat","Kuala Selangor","Sabak Bernam","Ulu Langat","Ulu Selangor", "Petaling", "Gombak","Sepang"],
+      "Terengganu": ["Besut","Dungun","Kemaman","Kuala Terengganu", "Hulu Terengganu", "Marang","Setiu"],
+      "Wilayah Persekutuan Kuala Lumpur": [],
+      "Wilayah Persekutuan Labuan": [],
+      "Wilayah Persekutuan Putrajaya": ["Putrajaya"],
+      "Perlis": []
+    };
 
-function updateDistricts() {
-  const state = document.getElementById("state").value;
-  const districtSelect = document.getElementById("district");
-  districtSelect.innerHTML = "";
+    function updateDistricts() {
+      const state = document.getElementById("state").value;
+      const districtSelect = document.getElementById("district");
+      districtSelect.innerHTML = "";
 
-  if (!stateDistricts[state] || stateDistricts[state].length === 0) {
-    districtSelect.disabled = true;
-    districtSelect.innerHTML = `<option value="">DISTRICT</option>`;
-  } else {
-    districtSelect.disabled = false;
-    districtSelect.innerHTML = `<option value="">DISTRICT</option>`;
-    stateDistricts[state].forEach(d => {
-      const option = document.createElement("option");
-      option.value = d;
-      option.textContent = d;
-      districtSelect.appendChild(option);
-    });
-  }
-  filterEvents();
-}
+      if (!stateDistricts[state] || stateDistricts[state].length === 0) {
+        districtSelect.disabled = true;
+        districtSelect.innerHTML = `<option value="">DISTRICT</option>`;
+      } else {
+        districtSelect.disabled = false;
+        districtSelect.innerHTML = `<option value="">DISTRICT</option>`;
+        stateDistricts[state].forEach(d => {
+          const option = document.createElement("option");
+          option.value = d;
+          option.textContent = d;
+          districtSelect.appendChild(option);
+        });
+      }
+      filterEvents();
+    }
 
-function filterEvents() {
-  const state = document.getElementById("state").value;
-  const district = document.getElementById("district").value;
+    function filterEvents() {
+      const state = document.getElementById("state").value;
+      const district = document.getElementById("district").value;
 
-    fetch(`?state=${state}&district=${district}`)
+      fetch(`?state=${state}&district=${district}`)
         .then(res => res.json())
         .then(data => {
-            const container = document.getElementById("events");
-            if (data.length === 0) {
-                container.innerHTML = "<p>No events found.</p>";
-                return;
-            }
-            container.innerHTML = data.map(e => `
-                <div class="event">
-                    <img src="${e.image_path}" alt="${e.event_name}" style="max-width:100%;height:auto;">
-                    <h3>${e.event_name}</h3>
-                    <p><strong>Date:</strong> ${e.event_date} | ${e.starttime} - ${e.endtime}</p>
-                    <p><strong>Location:</strong> ${e.district}, ${e.state}</p>
-                    <p>${e.event_details}</p>
-                    ${isAdmin && hospitalId === parseInt(e.hospital_id) ? `
-                        <a href="manage-event.php?action=edit&event_id=${e.event_id}">Edit</a> |
-                        <a href="manage-event.php?action=delete&event_id=${e.event_id}" onclick="return confirm('Are you sure?')">Delete</a>
-                    ` : ""}
-                </div>
-            `).join("");
+          const container = document.getElementById("events");
+          if (data.length === 0) {
+            container.innerHTML = "<p>No events found.</p>";
+            return;
+          }
+          container.innerHTML = data.map(e => `
+            <div class="event">
+              <img src="${e.image_path}" alt="${e.event_name}" style="max-width:100%;height:auto;">
+              <h3>${e.event_name}</h3>
+              <p><strong>Date:</strong> ${e.event_date} | ${e.starttime} - ${e.endtime}</p>
+              <p><strong>Location:</strong> ${e.district}, ${e.state}</p>
+              <p>${e.event_details}</p>
+              ${isAdmin && hospitalId === parseInt(e.hospital_id) ? `
+                <a href="manage-event.php?action=edit&event_id=${e.event_id}">Edit</a> |
+                <a href="manage-event.php?action=delete&event_id=${e.event_id}" onclick="return confirm('Are you sure?')">Delete</a>
+              ` : ""}
+            </div>
+          `).join("");
         });
-}
+    }
 
-window.onload = () => {
-  updateDistricts();
-  filterEvents();
-};
-</script>
+    window.onload = () => {
+      updateDistricts();
+      filterEvents();
+    };
+  </script>
 
+  <?php include("footer.html"); ?>
 </body>
-
-<?php include ("footer.html") ?>
 </html>

@@ -64,98 +64,8 @@ $user = $result->fetch_assoc();
 <head>
   <meta charset="UTF-8">
   <title>BloodLink - Profile</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      padding: 20px 0;
-      border-bottom: 1px solid #ccc;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    nav button {
-      background-color: #d23241;
-      color: white;
-      padding: 10px 20px;
-      margin: 5px;
-      border: none;
-      cursor: pointer;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    .profile-container {
-      background-color: #d23241;
-      color: white;
-      width: 80%;
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      text-align: left;
-    }
-    .profile-info p, .profile-info label {
-      margin: 10px 0;
-    }
-    .profile-info input, .profile-info select {
-      padding: 5px;
-      width: 100%;
-      margin-top: 5px;
-    }
-    .profile-pic img {
-      width: 150px;
-      height: 150px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-    .edit-btn, .save-btn, .cancel-btn {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-right: 10px;
-    }
-    .edit-btn {
-      background-color: white;
-      color: #d23241;
-      border: 2px solid #fff;
-    }
-    .save-btn, .cancel-btn {
-      display: none;
-      background-color: white;
-      color: #d23241;
-      border: 2px solid #fff;
-    }
-    .success, .error {
-      margin: 10px auto;
-      padding: 10px;
-      width: 80%;
-      max-width: 600px;
-      border-radius: 6px;
-    }
-    .success {
-      background-color: #d4edda;
-      color: #155724;
-    }
-    .error {
-      background-color: #f8d7da;
-      color: #721c24;
-    }
-  </style>
+  <link rel="stylesheet" href="profile.css" type="text/css">
+
 </head>
 <body>
   <?php include ("navbar.php") ?>
@@ -168,31 +78,31 @@ $user = $result->fetch_assoc();
     <input type="hidden" name="action" value="save">
     <div class="profile-container">
       <div class="profile-info">
-        <p><strong>Profile User</strong></p>
-        <p>Username: <?php echo htmlspecialchars($user['username']); ?></p>
-        <p>Full Name: <?php echo htmlspecialchars($user['full_name']); ?></p>
-        <p>IC Number: <?php echo htmlspecialchars($user['id_card_number']); ?></p>
-        <p>Date of Birth: <?php echo htmlspecialchars($user['date_of_birth']); ?></p>
-        <p>Age: <?php echo htmlspecialchars($user['age']); ?> years</p>
-        <p>Gender: <?php echo htmlspecialchars($user['gender']); ?></p>
+        <h2><strong>Profile User</strong></h2>
+        <p><strong>Username : </strong><?php echo htmlspecialchars($user['username']); ?></p>
+        <p><strong>Full Name : </strong><?php echo htmlspecialchars($user['full_name']); ?></p>
+        <p><strong>IC Number : </strong><?php echo htmlspecialchars($user['id_card_number']); ?></p>
+        <p><strong>Date of Birth : </strong><?php echo htmlspecialchars($user['date_of_birth']); ?></p>
+        <p><strong>Age : </strong><?php echo htmlspecialchars($user['age']); ?> years</p>
+        <p><strong>Gender : </strong><?php echo htmlspecialchars($user['gender']); ?></p>
 
         <!-- Display View -->
-        <p>Email: <span id="displayEmail"><?php echo htmlspecialchars($user['email']); ?></span></p>
-        <p>Mobile No: <span id="displayMobile"><?php echo htmlspecialchars($user['mobile_number']); ?></span></p>
-        <p>Blood Type: <span id="displayBloodType"><?php echo htmlspecialchars($user['bloodtype']); ?></span></p>
+        <p><strong>Email : </strong><span id="displayEmail"><?php echo htmlspecialchars($user['email']); ?></span></p>
+        <p><strong>Mobile No : </strong><span id="displayMobile"><?php echo htmlspecialchars($user['mobile_number']); ?></span></p>
+        <p><strong>Blood Type : </strong><span id="displayBloodType"><?php echo htmlspecialchars($user['bloodtype']); ?></span></p>
 
         <!-- Hidden Fields -->
         <div id="editFields" style="display: none;">
           <p>
-            <label>Email:</label>
+            <label>Email :</label>
             <input type="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
           </p>
           <p>
-            <label>Mobile No:</label>
+            <label>Mobile No :</label>
             <input type="text" name="mobile_number" value="<?php echo htmlspecialchars($user['mobile_number']); ?>">
           </p>
           <p>
-            <label>Blood Type:</label><br>
+            <label>Blood Type :</label><br>
             <select name="bloodtype">
               <?php
               $types = ["NA", "A", "B", "AB", "O"];
@@ -220,7 +130,7 @@ $user = $result->fetch_assoc();
     </div>
   </form>
   <div class="view-history">
-      <button onclick="location.href='history.php'">View History</button>
+    <button class="view-btn" onclick="location.href='history.php'">View History</button>
   </div>
 
   <script>

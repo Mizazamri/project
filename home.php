@@ -7,15 +7,13 @@
     <link rel="stylesheet" href="home.css" type="text/css">
 </head>
 <body>
-    <?php include("navbar.php"); ?>
-
+    <?php include "navbar.php"; ?>
     <section class="intro">
     <h1>Intro</h1>
     <p class="subtitle">Subtitle</p>
     <div class="cta-buttons">
-      <a href="login.php"><button>🩸 Donate Now!</button></a>
-        
-      <button>📘 let's get to know more about blood donation!</button>
+        <a href="login.php"><button>🩸 Donate Now!</button></a>
+        <button>📘 let's get to know more about blood donation!</button>
     </div>
   </section>
 

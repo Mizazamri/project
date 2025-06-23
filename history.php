@@ -1,13 +1,32 @@
 <?php
-// Database connection
+session_start();
 include("connect.php");
 
-// Get sorting option
+// Ensure the user is logged in
+$email = $_SESSION['email'] ?? null;
+if (!$email) {
+    header("Location: login.php");
+    exit();
+}
+
+// Get donor ID based on email
+$stmt = $conn->prepare("SELECT donor_id FROM donor WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$stmt->bind_result($donor_id);
+$stmt->fetch();
+$stmt->close();
+
+// Get sorting option from query
 $sort = isset($_GET['sort']) && $_GET['sort'] === 'latest' ? 'DESC' : 'ASC';
 
-// Fetch donation records
-$sql = "SELECT * FROM donation_record ORDER BY donation_date $sort";
-$result = $conn->query($sql);
+// Fetch donation records for this donor only
+$sql = "SELECT * FROM donation_record WHERE donor_id = ? ORDER BY donation_date $sort";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $donor_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
 $records = [];
 while ($row = $result->fetch_assoc()) {
     $records[] = $row;
@@ -115,6 +134,7 @@ while ($row = $result->fetch_assoc()) {
 
 <header>BloodLink - Donation History</header>
 <?php include ("navbar.php") ?>
+
 <div class="filter">
   <label for="sort">Sort by:</label>
   <select id="sort" onchange="sortRecords()">
@@ -156,7 +176,6 @@ while ($row = $result->fetch_assoc()) {
 
 <button onclick="printRecords()">Print Records</button>
 
-</body>
-
 <?php include ("footer.html") ?>
+</body>
 </html>
